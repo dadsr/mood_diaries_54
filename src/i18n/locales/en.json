@@ -1,0 +1,222 @@
+{
+  "navigation": {
+    "firstDiary": "First Diary",
+    "secondDiary": "Second Diary",
+    "settings": "Settings",
+    "about": "About",
+    "back": "Back"
+  },
+
+  "settings": {
+    "English": "English",
+    "Hebrew": "Hebrew",
+    "diaryToClear": "Select Diary to Clear",
+    "clear Diary": "Clear Diary",
+    "ok": "OK",
+    "cases cleared": " Diary cleared successfully"
+  },
+
+  "about": {
+    "infoHeading": "Yael Chapal - Emotional Coach and Certified Therapist in NLP and LICBT Approach",
+    "infoText": "Owner of a private clinic specializing in dealing with anxiety, emotional regulation, life transitions and personal empowerment.\nCertified NLP lecturer in professional training programs.\nConducts workshops and lectures for diverse audiences.\n",
+    "phoneNumber": "Mobile Phone",
+    "email": "Email",
+    "instagram": "Instagram"
+  },
+
+  "diary": {
+    "events list": "Events List",
+    "no events found.": "No events found.",
+    "click Add Event to get started.": "Click Add Event to get started."
+  },
+
+  "case": {
+    "description": "Description",
+    "thought": "Thought",
+    "emotions display": "Emotions display",
+    "emotions": "Emotions",
+    "behavior": "Behavior",
+    "symptoms": "Symptoms",
+    "distortionThoughts": "Distortion Thoughts",
+    "distortions display": "Distortions display",
+    "counterThoughts": "Counter Thoughts",
+
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
+
+  "editCase": {
+    "editing event": "Editing Event",
+
+    "event name is a required field": "Event name is a required field",
+    "eventName": "Event Name",
+    "date": "Date",
+    "event date": "Event Date",
+    "thought": "Thought",
+    "emotions": "Emotions",
+    "emotions selection": "Emotions Selection",
+    "behavior": "Behavior",
+    "symptoms": "Symptoms",
+    "save": "Save",
+
+
+    "distortion thoughts" : "Distortion thoughts",
+    "distortion thoughts selection" : "Distortion thoughts selection",
+    "counter thoughts" : "Counter thoughts"
+
+  },
+  "emotionsSelector": {
+    "emotions": "Emotions",
+    "chooseEmotion": "choose an emotion...",
+    "search": "Search...",
+    "intensityLabel": "Intensity"
+  },
+
+  "emotionCard": {
+    "no emotions text": "No emotions saved. Set emotions for the event in the edit screen."
+
+  },
+  "multiSelectCheckboxes": {
+    "select": "Select"
+  },
+
+  "emotions": {
+    "JOY": "Joy",
+    "HAPPINESS": "Happiness",
+    "PLEASURE": "Pleasure",
+    "EXCITEMENT": "Excitement",
+    "ENTHUSIASM": "Enthusiasm",
+    "OPTIMISM": "Optimism",
+    "CONTENTMENT": "Contentment",
+    "SATISFACTION": "Satisfaction",
+    "PRIDE": "Pride",
+    "FULFILLMENT": "Fulfillment",
+    "PEACE": "Peace",
+    "RELIEF": "Relief",
+    "SECURITY": "Security",
+    "HOPE": "Hope",
+    "SERENITY": "Serenity",
+    "PLEASANTNESS": "Pleasantness",
+    "PEACE_OF_MIND": "Peace of Mind",
+    "GRATITUDE": "Gratitude",
+    "LOVE": "Love",
+    "AFFECTION": "Affection",
+    "CLOSENESS": "Closeness",
+    "TOLERANCE": "Tolerance",
+    "RECIPROCITY": "Reciprocity",
+    "EMPATHY": "Empathy",
+    "LONGING": "Longing",
+    "NOSTALGIA": "Nostalgia",
+    "EXPECTATION": "Expectation",
+    "YEARNING": "Yearning",
+    "PASSION": "Passion",
+    "DESIRE": "Desire",
+    "URGE": "Urge",
+    "DELIGHT": "Delight",
+    "CRAVING": "Craving",
+    "LUST": "Lust",
+    "POWER": "Power",
+    "VITALITY": "Vitality",
+    "DETERMINATION": "Determination",
+    "COURAGE": "Courage",
+    "SURPRISE": "Surprise",
+    "WONDER": "Wonder",
+    "SHOCK": "Shock",
+    "TRAUMA": "Trauma",
+    "CONFUSION": "Confusion",
+    "HESITATION": "Hesitation",
+    "DOUBT": "Doubt",
+    "UNCERTAINTY": "Uncertainty",
+    "AMBIVALENCE": "Ambivalence",
+    "DISRUPTION": "Disruption",
+    "DISPERSION": "Dispersion",
+    "EMOTIONAL_TURMOIL": "Emotional Turmoil",
+    "FRUSTRATION": "Frustration",
+    "IMPOTENCE": "Impotence",
+    "DISCOURAGEMENT": "Discouragement",
+    "BITTERNESS": "Bitterness",
+    "DESPAIR": "Despair",
+    "DEPRESSION": "Depression",
+    "GUILT": "Guilt",
+    "EMBARRASSMENT": "Embarrassment",
+    "SHAME": "Shame",
+    "REMORSE": "Remorse",
+    "FEAR": "Fear",
+    "APPREHENSION": "Apprehension",
+    "ALARM": "Alarm",
+    "PARALYSIS": "Paralysis",
+    "TERROR": "Terror",
+    "ANXIETY": "Anxiety",
+    "BOREDOM": "Boredom",
+    "EMPTINESS": "Emptiness",
+    "INDIFFERENCE": "Indifference",
+    "FATIGUE": "Fatigue",
+    "HEAVINESS": "Heaviness",
+    "ANGER": "Anger",
+    "RESENTMENT": "Resentment",
+    "HATRED": "Hatred",
+    "DISAPPROVAL": "Disapproval",
+    "CONTEMPT": "Contempt",
+    "HOSTILITY": "Hostility",
+    "DISGUST": "Disgust",
+    "REVULSION": "Revulsion",
+    "STRESS": "Stress",
+    "DISCOMFORT": "Discomfort",
+    "IMPATIENCE": "Impatience",
+    "SENSITIVITY": "Sensitivity",
+    "WORRY": "Worry",
+    "CONCERN": "Concern",
+    "GLOOMINESS": "Gloominess",
+    "NERVOUSNESS": "Nervousness",
+    "DISTRESS": "Distress",
+    "PRESSURE": "Pressure",
+    "ANGUISH": "Anguish",
+    "PAIN": "Pain",
+    "INSULT": "Insult",
+    "INJURY": "Injury",
+    "DISAPPOINTMENT": "Disappointment",
+    "SORROW": "Sorrow",
+    "SUFFERING": "Suffering",
+    "LONELINESS": "Loneliness",
+    "ENVY": "Envy"
+  },
+
+
+  "distortions": {
+    "ALL_OR_NOTHING": "All-or-Nothing",
+    "ALL_OR_NOTHING_description": "Seeing things in black and white without shades of gray. If I don't succeed at everything, I'm a complete failure. A single event appears as permanent failure that will never change. Drawing sweeping conclusions from a single event.",
+
+    "OVERGENERALIZATION": "Overgeneralization",
+    "OVERGENERALIZATION_description": "I failed one test, so I'm a complete failure. Seeing myself and the world through a single failure and applying it to everything.",
+
+    "MENTAL_FILTER": "Mental Filter",
+    "MENTAL_FILTER_description": "Only seeing the negative and ignoring the positive. Focusing on negative details while ignoring successes or good things that happened.",
+
+    "DISQUALIFYING_THE_POSITIVE": "Disqualifying the Positive",
+    "DISQUALIFYING_THE_POSITIVE_description": "Everyone tells me I'm successful, but I'm sure they're wrong or just comforting me. Ignoring positive feedback and minimizing its value.",
+
+    "CATASTROPHIZING": "Catastrophizing",
+    "CATASTROPHIZING_description": "I'm sure something bad will happen in the future, despite having no proof. A self-fulfilling prophecy.",
+
+    "FORTUNE_TELLING": "Fortune Telling",
+    "FORTUNE_TELLING_description": "I'm sure something bad will happen, despite having no real basis for it. Negative prediction based on feelings alone.",
+
+    "EMOTIONAL_REASONING": "Emotional Reasoning",
+    "EMOTIONAL_REASONING_description": "I feel bad, therefore I must be bad, unsuccessful, unloved, etc.",
+
+    "SHOULD_STATEMENTS": "Should Statements",
+    "SHOULD_STATEMENTS_description": "Setting rigid demands for myself or others ('I must', 'I should', 'I can't'), leading to guilt, frustration, or anger.",
+
+    "LABELING": "Labeling",
+    "LABELING_description": "Attaching negative labels to myself or others ('I'm a failure', 'He's lazy'), instead of addressing specific behavior.",
+
+    "PERSONALIZATION": "Personalization",
+    "PERSONALIZATION_description": "Taking responsibility for negative things even when there's no reason to. Mistakenly concluding that the event was caused by my fault or reflects my inability.",
+
+    "BLAMING": "Self-Blame or Blaming Others",
+    "BLAMING_description": "Blaming myself or others for negative situations, even when there's no real justification for it."
+  }
+}
+

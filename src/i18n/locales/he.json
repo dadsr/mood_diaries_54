@@ -1,0 +1,225 @@
+{
+
+  "navigation": {
+    "firstDiary": "יומן ראשון",
+    "secondDiary": "יומן שני",
+    "settings": "הגדרות",
+    "about": "אודות",
+    "back": "חזור"
+  },
+
+  "settings": {
+    "English": "אנגלית",
+    "Hebrew": "עברית",
+    "diaryToClear": "בחר יומן להסרה",
+    "clear Diary": "הסר יומן",
+    "ok": "אישור",
+    "cases cleared": "יומן הוסר בהצלחה"
+  },
+
+  "about": {
+    "infoHeading": "יעל צ'פאל - מאמנת רגשית ומטפלת מוסמכת בגישת NLP ו LICBT",
+    "infoText": "בעלת קליניקה פרטית המתמחה בהתמודדות עם חרדה, ויסות רגשי, מעברים בחיים והעצמה אישית.\nמרצה מוסמכת ל־NLP במסלולי הכשרה מקצועיים.\nמעבירה סדנאות והרצאות לקהלים מגוונים.\n",
+    "phoneNumber": "טלפון נייד",
+    "email": "אימייל",
+    "instagram": "אינסטגרם"
+  },
+
+  "diary": {
+    "events list": "אירועים",
+    "no events found.": "לא אותרו אירועים",
+    "click Add Event to get started.":"לחץ על הוסף כדי להתחיל."
+  },
+
+  "case": {
+    "description": "תאור",
+    "thought": "מחשבות",
+    "emotions display": "תצוגת רגשות",
+    "emotions": "רגשות",
+    "behavior": "התנהגויות",
+    "symptoms": "סימפטומים",
+    "distortionThoughts": "עיוותי חשיבה",
+    "distortions display": "תצוגת עיוותי חשיבה ",
+    "counterThoughts": "מחשבות חליפיות",
+
+    "actions": {
+      "edit": "ערוך",
+      "delete": "הסר"
+    }
+
+  },
+
+  "editCase": {
+    "editing event": "עריכת אירוע",
+
+    "event name is a required field": "שם האירוע הוא שדה חובה",
+    "eventName": "שם האירוע",
+    "date": "תאריך",
+    "event date": "תאריך אירוע",
+    "thought" : "מחשבה",
+    "emotions": "רגשות",
+    "emotions selection": "בחירת רגשות",
+    "behavior": "התנהגויות",
+    "symptoms": "סימפטומים",
+    "save": "שמירה",
+
+    "distortion thoughts" : "עיוותי חשיבה",
+    "distortion thoughts selection" : "בחירת עיוותי חשיבה",
+    "counter thoughts" : "מחשבות אוטומטיות"
+  },
+
+  "emotionsSelector": {
+    "emotions": "רגשות",
+    "chooseEmotion": "בחר רגש...",
+    "search": "חיפוש...",
+    "intensityLabel": "עוצמה"
+  },
+
+    "emotionCard": {
+      "no emotions text": "לא נשמרו רגשות. הגדר רגשות לאירוע במסך העריכה."
+    },
+
+    "multiSelectCheckboxes": {
+      "select": "בחר"
+    },
+
+  "emotions": {
+    "JOY": "שמחה",
+    "HAPPINESS": "אושר",
+    "PLEASURE": "הנאה",
+    "EXCITEMENT": "התרגשות",
+    "ENTHUSIASM": "התלהבות",
+    "OPTIMISM": "אופטימיות",
+    "CONTENTMENT": "נחת",
+    "SATISFACTION": "סיפוק",
+    "PRIDE": "גאווה",
+    "FULFILLMENT": "שביעות רצון",
+    "PEACE": "רוגע",
+    "RELIEF": "הקלה",
+    "SECURITY": "ביטחון",
+    "HOPE": "תקווה",
+    "SERENITY": "שלווה",
+    "PLEASANTNESS": "נעימות",
+    "PEACE_OF_MIND": "נחת רוח",
+    "GRATITUDE": "הכרת תודה",
+    "LOVE": "אהבה",
+    "AFFECTION": "חיבה",
+    "CLOSENESS": "קרבה",
+    "TOLERANCE": "סובלנות",
+    "RECIPROCITY": "הדדיות",
+    "EMPATHY": "אמפתיה",
+    "LONGING": "מחלה",
+    "NOSTALGIA": "געגוע",
+    "EXPECTATION": "ציפייה",
+    "YEARNING": "כמיהה",
+    "PASSION": "תשוקה",
+    "DESIRE": "חשק",
+    "URGE": "דחף",
+    "DELIGHT": "עונג",
+    "CRAVING": "השתוקקות",
+    "LUST": "תאווה",
+    "POWER": "עוצמה",
+    "VITALITY": "חִיוּנִיוּת",
+    "DETERMINATION": "נחישות",
+    "COURAGE": "אומץ",
+    "SURPRISE": "הפתעה",
+    "WONDER": "תמיהה",
+    "SHOCK": "הלם",
+    "TRAUMA": "זעזוע",
+    "CONFUSION": "בלבול",
+    "HESITATION": "היסוס",
+    "DOUBT": "ספק",
+    "UNCERTAINTY": "אי-ודאות",
+    "AMBIVALENCE": "אמביוולנטיות",
+    "DISRUPTION": "ערעור",
+    "DISPERSION": "פיזור",
+    "EMOTIONAL_TURMOIL": "סערת רגשות",
+    "FRUSTRATION": "תסכול",
+    "IMPOTENCE": "חוסר אונים",
+    "DISCOURAGEMENT": "דכדוך",
+    "BITTERNESS": "מרמור",
+    "DESPAIR": "ייאוש",
+    "DEPRESSION": "דכאון",
+    "GUILT": "אשמה",
+    "EMBARRASSMENT": "מבוכה",
+    "SHAME": "בושה",
+    "REMORSE": "חרטה",
+    "FEAR": "פחד",
+    "APPREHENSION": "חשש",
+    "ALARM": "בהלה",
+    "PARALYSIS": "שיתוק",
+    "TERROR": "אימה",
+    "ANXIETY": "חרדה",
+    "BOREDOM": "שעמום",
+    "EMPTINESS": "ריקנות",
+    "INDIFFERENCE": "אדישות",
+    "FATIGUE": "עייפות",
+    "HEAVINESS": "כבדות",
+    "ANGER": "כעס",
+    "RESENTMENT": "טינה",
+    "HATRED": "שנאה",
+    "DISAPPROVAL": "הסתייגות",
+    "CONTEMPT": "בוז",
+    "HOSTILITY": "עוינות",
+    "DISGUST": "גועל",
+    "REVULSION": "תיעוב",
+    "STRESS": "מתח",
+    "DISCOMFORT": "אי-נוחות",
+    "IMPATIENCE": "חוסר סבלנות",
+    "SENSITIVITY": "רגישות",
+    "WORRY": "מוטרדות",
+    "CONCERN": "דאגה",
+    "GLOOMINESS": "סגריריות",
+    "NERVOUSNESS": "עצבנות",
+    "DISTRESS": "מועקה",
+    "PRESSURE": "לחץ",
+    "ANGUISH": "מצוקה",
+    "PAIN": "כאב",
+    "INSULT": "עלבון",
+    "INJURY": "פגיעה",
+    "DISAPPOINTMENT": "אכזבה",
+    "SORROW": "צער",
+    "SUFFERING": "סבל",
+    "LONELINESS": "בדידות",
+    "ENVY": "קנאה"
+  },
+
+
+  "distortions": {
+    "ALL_OR_NOTHING": "הכל או כלום",
+    "ALL_OR_NOTHING_description": "ראיית הכל בשחור או לבן ללא גוונים. אם אני לא מצליח/ה בכל דבר, אני כישלון מוחלט. אירוע בודד נראה ככישלון קבוע שלא ישתנה לעולם. הסקת מסקנות מרופת מאירוע בודד.",
+
+    "OVERGENERALIZATION": "הכללה",
+    "OVERGENERALIZATION_description": "כשלתי במבחן אחד, אני כישלון מוחלט. רואה את עצמי ואת העולם מתוך כישלון יחיד ומחיל אותו על הכל.",
+
+    "MENTAL_FILTER": "מסננת שלילית",
+    "MENTAL_FILTER_description": "רואה רק את השלילי ומתעלם מהחיובי. מתמקד בפרטים שליליים ומתעלם מהצלחות או דברים טובים שקרו.",
+
+    "DISQUALIFYING_THE_POSITIVE": "פסילה בערך תכונות חיוביות",
+    "DISQUALIFYING_THE_POSITIVE_description": "כולם אומרים לי שאני מצליח/ה ומצליח/ה, אבל אני בטוח/ה שהם טועים או סתם מנחמים אותי. מתעלם/ת מהערכה חיובית וממעיט/ה בערכה.",
+
+    "CATASTROPHIZING": "קפיצה למסקנות",
+    "CATASTROPHIZING_description": "אני בטוח/ה שיקרה משהו רע בעתיד, למרות שאין לכך הוכחה. נבואה שמגשימה את עצמה.",
+
+    "FORTUNE_TELLING": "ראיית עתיד",
+    "FORTUNE_TELLING_description": "אני בטוח/ה שמשהו רע יקרה, למרות שאין לכך בסיס אמיתי. תחזית שלילית על סמך תחושות בלבד.",
+
+    "EMOTIONAL_REASONING": "שיפוט רגשי",
+    "EMOTIONAL_REASONING_description": "אני מרגיש/ה רע, ולכן זה אומר שאני באמת גרוע/ה, לא מוצלח/ת, לא אהוב/ה וכו'.",
+
+    "SHOULD_STATEMENTS": "הנחיות של צריך/חייב/אסור",
+    "SHOULD_STATEMENTS_description": "הצבת דרישות נוקשות לעצמי או לאחרים (\"אני חייב\", \"אני צריך\", \"אסור לי\"), מה שמוביל לאשמה, תסכול או כעס.",
+
+    "LABELING": "תיוג",
+    "LABELING_description": "הדבקת תווית שלילית לעצמי או לאחרים (\"אני כישלון\", \"הוא עצלן\"), במקום להתייחס להתנהגות הספציפית.",
+
+    "PERSONALIZATION": "ייחוס אישי",
+    "PERSONALIZATION_description": "אני לוקח/ת אחריות על דברים שליליים גם כשאין לכך סיבה. מסיק/ה בטעות שהאירוע נגרם באשמתי או משקף חוסר יכולת שלי.",
+
+    "BLAMING": "האשמה עצמית או האשמת אחרים",
+    "BLAMING_description": "מאשים/ה את עצמי או את האחרים במצבים שליליים, גם כאשר אין לכך הצדקה אמיתית."
+  }
+}
+
+
+
