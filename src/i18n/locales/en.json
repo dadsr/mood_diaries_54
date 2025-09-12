@@ -49,8 +49,7 @@
 
   "editCase": {
     "editing event": "Editing Event",
-
-    "event name is a required field": "Event name is a required field",
+    "caseNameRequired": "Event name is a required field",
     "eventName": "Event Name",
     "date": "Date",
     "event date": "Event Date",

@@ -51,8 +51,7 @@
 
   "editCase": {
     "editing event": "עריכת אירוע",
-
-    "event name is a required field": "שם האירוע הוא שדה חובה",
+    "caseNameRequired": "שם האירוע הוא שדה חובה",
     "eventName": "שם האירוע",
     "date": "תאריך",
     "event date": "תאריך אירוע",

@@ -12,10 +12,10 @@ import {Text} from "react-native-paper";
 import React, {JSX, useState} from "react";
 import {Emotion} from "../models/Emotion";
 import {useTranslation} from "react-i18next";
-import EmotionCard from "./EmotionCard";
+import EmotionCard from "./EmotionsModel";
 import {COLORS} from "../styles/themConstants";
 import {DistortionThought} from "../models/DistortionThought";
-import DistortionThoughtCard from "./DistortionThoughtCard";
+import DistortionThoughtsModel from "./DistortionThoughtsModel";
 
 interface modelProps {
     diary: number;
@@ -53,12 +53,12 @@ export default function CaseModel({diary, items}: modelProps): JSX.Element {
 
                 <View style={styles.modalContent}>
 
-                    {items[0] instanceof Emotion && (
-                        <EmotionCard  emotions={items as Emotion[]} />
-                    )}
-                    {items[0] instanceof DistortionThought && (
-                        <DistortionThoughtCard distortionThoughts={items as DistortionThought[]} />
-                    )}
+                    {/*{items[0] instanceof Emotion && (*/}
+                    {/*    // <EmotionCard  emotions={items as Emotion[]} />*/}
+                    {/*)}*/}
+                    {/*{items[0] instanceof DistortionThought && (*/}
+                    {/*    // <DistortionThoughtCard distortionThoughts={items as DistortionThought[]} />*/}
+                    {/*)}*/}
 
                 </View>
                 <View style={styles.buttonContainer}>

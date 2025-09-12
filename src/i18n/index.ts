@@ -9,11 +9,12 @@ const resources = {
     he: { translation: translationHe },
 };
 
-const deviceLocale =
+const deviceLocale ='he';
+{/*
     Localization.getLocales && Localization.getLocales().length > 0
         ? Localization.getLocales()[0].languageTag
         : 'he';
-
+*/}
 console.log("📱 Device locale detected:", deviceLocale);
 
 i18n

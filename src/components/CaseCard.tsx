@@ -1,38 +1,38 @@
-import React, { JSX, useState } from "react";
-import { Button, Card, Text } from "react-native-paper";
-import { Case } from "../models/Case";
-import { router } from "expo-router";
+import React, {JSX, useState} from "react";
+import {Button, Card, Text} from "react-native-paper";
+import {Case} from "../models/Case";
+import {router} from "expo-router";
 import services from "../services/Services";
-import { globalStyles } from "../styles/globalStyles";
-import { I18nManager, ImageBackground, StyleSheet, TouchableOpacity, View } from "react-native";
-import CaseModel from "./CaseModel";
-import { useTranslation } from "react-i18next";
-import { displayImg } from "../../assets";
-import { COLORS } from "../styles/themConstants";
+import {globalStyles} from "../styles/globalStyles";
+import {I18nManager, ImageBackground, StyleSheet, TouchableOpacity, View} from "react-native";
+import {useTranslation} from "react-i18next";
+import {displayImg} from "../../assets";
+import {COLORS} from "../styles/themConstants";
+import EmotionCard from "@/src/components/EmotionsModel";
+import DistortionThoughtsModel from "@/src/components/DistortionThoughtsModel";
 
 interface CaseProps {
     diary: number;
-    case: Case;
+    moodCase: Case;
 }
 
-export default function CaseCard(props: CaseProps): JSX.Element {
+export default function CaseCard({diary,moodCase}: CaseProps): JSX.Element {
     console.log("CaseCard");
-
-
     const { t } = useTranslation();
-    const { diary, case: item } = props;
-    const [isFeelingsModalVisible, setIsFeelingsModalVisible] = useState(false);
+
+    const [isEmotionsModalVisible, setIsEmotionsModalVisible] = useState(false);
     const [isDistortionsModalVisible, setIsDistortionsModalVisible] = useState(false);
 
-    const openFeelingsModal = () => setIsFeelingsModalVisible(true);
-    const openDistortionsModal = () => setIsDistortionsModalVisible(true);
+    const onPressEmotionsModal = () => setIsEmotionsModalVisible(!isEmotionsModalVisible);
+    const onPressDistortionsModal = () => setIsDistortionsModalVisible(!isDistortionsModalVisible);
+
 
     const editCase = () => {
-        router.push({ pathname: '/editCase', params: { diary: diary, id: item.id } });
+        router.push({ pathname: '/editCase', params: { diary: diary, id: moodCase.id } });
     };
 
     const deleteCase = () => {
-        services.deleteCase(diary, item.id);
+        services.deleteCase(diary, moodCase.id);
         console.log("deleteCase");
 
         switch (diary) {
@@ -48,8 +48,8 @@ export default function CaseCard(props: CaseProps): JSX.Element {
     return (
         <Card style={styles.card}>
             <Card.Title
-                title={item.caseName}
-                subtitle={item.caseDate.toLocaleDateString('he-IL')}
+                title={moodCase.caseName}
+                subtitle={moodCase.caseDate.toLocaleDateString('he-IL')}
                 style={styles.cardTitleContainer}
                 titleStyle={styles.cardTitleText}
                 subtitleStyle={styles.cardSubtitleText}
@@ -58,12 +58,12 @@ export default function CaseCard(props: CaseProps): JSX.Element {
             <Card.Content>
                 {/* description */}
                 <Text style={globalStyles.text}>
-                    {t("case.description")}: {item.caseDescription}
+                    {t("case.description")}: {moodCase.caseDescription}
                 </Text>
 
                 {/* thought */}
                 <Text style={globalStyles.text}>
-                    {t("case.thought")}: {item.thought}
+                    {t("case.thought")}: {moodCase.thought}
                 </Text>
 
                 {/* emotions */}
@@ -72,15 +72,16 @@ export default function CaseCard(props: CaseProps): JSX.Element {
                     style={globalStyles.background}
                     resizeMode="stretch"
                 >
-                    <TouchableOpacity style={globalStyles.modelOpener} onPress={openFeelingsModal}>
+                    <TouchableOpacity style={globalStyles.modelOpener} onPress={onPressEmotionsModal}>
                         <Text style={styles.linkText}>
                             {t("case.emotions display")}
                         </Text>
                     </TouchableOpacity>
 
-                    {isFeelingsModalVisible && (
-                        <CaseModel diary={diary} items={item.emotions} />
+                    {isEmotionsModalVisible && (
+                        <EmotionCard  emotions={moodCase.emotions} onPress={onPressEmotionsModal} />
                     )}
+
                 </ImageBackground>
 
 
@@ -89,11 +90,11 @@ export default function CaseCard(props: CaseProps): JSX.Element {
                     <>
                         {/* behavior */}
                         <Text style={globalStyles.text}>
-                            {t("case.behavior")}: {item.behavior}
+                            {t("case.behavior")}: {moodCase.behavior}
                         </Text>
                         {/* symptoms */}
                         <Text style={globalStyles.text}>
-                            {t("case.symptoms")}: {item.symptoms}
+                            {t("case.symptoms")}: {moodCase.symptoms}
                         </Text>
                     </>
                 )}
@@ -108,19 +109,19 @@ export default function CaseCard(props: CaseProps): JSX.Element {
                             style={globalStyles.background}
                             resizeMode="stretch"
                         >
-                            <TouchableOpacity style={globalStyles.modelOpener} onPress={openDistortionsModal}>
+                            <TouchableOpacity style={globalStyles.modelOpener} onPress={onPressDistortionsModal}>
                                 <Text style={styles.linkText}>
                                     {t("case.distortionThoughts")}
                                 </Text>
                             </TouchableOpacity>
 
                             {isDistortionsModalVisible && (
-                                <CaseModel diary={diary} items={item.distortions} />
+                                <DistortionThoughtsModel  distortionThoughts={moodCase.distortions} onPress={onPressDistortionsModal} />
                             )}
                         </ImageBackground>
                         {/* counterThoughts */}
                         <Text style={globalStyles.text}>
-                            {t("case.counterThoughts")}: {item.counterThoughts}
+                            {t("case.counterThoughts")}: {moodCase.counterThoughts}
                         </Text>
                     </>
                 )}

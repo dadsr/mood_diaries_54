@@ -156,7 +156,7 @@ export default function EditCase(): JSX.Element {
 
                     <Text style = {globalStyles.heading}>{t("editCase.editing event")}:</Text>
 
-                    /* description */
+                    {/* description */}
                     <Text style={styles.label}>{t("editCase.eventName")}{':' + nbsp}</Text>
                     <Controller
                         control={control}
