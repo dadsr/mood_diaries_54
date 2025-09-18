@@ -24,6 +24,7 @@ export class Services {
                 caseInstance.id = caseItem.id;
                 caseInstance.caseName = caseItem.caseName;
                 caseInstance.caseDate = new Date(caseItem.caseDate);
+                caseInstance.caseDescription = caseItem.caseDescription;
                 caseInstance.thought = caseItem.thought;
                 caseInstance.emotions = caseItem.emotions?.map((e: SerializedEmotion) =>
                     new Emotion(e._emotion, e._intensity)) || [];

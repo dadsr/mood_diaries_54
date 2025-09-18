@@ -55,6 +55,7 @@
     "eventName": "שם האירוע",
     "date": "תאריך",
     "event date": "תאריך אירוע",
+    "description": "תאור אירוע",
     "thought" : "מחשבה",
     "emotions": "רגשות",
     "emotions selection": "בחירת רגשות",
@@ -74,13 +75,17 @@
     "intensityLabel": "עוצמה"
   },
 
-    "emotionCard": {
-      "no emotions text": "לא נשמרו רגשות. הגדר רגשות לאירוע במסך העריכה."
-    },
+  "emotionModel": {
+    "no emotions text": "לא נשמרו רגשות. הגדר רגשות לאירוע במסך העריכה."
+  },
 
-    "multiSelectCheckboxes": {
-      "select": "בחר"
-    },
+  "distortionThoughtsModel": {
+    "no distortionThoughts text": "לא נשמרו עיוותי חשיבה. הגדר  עיוותי חשיבה  במסך העריכה"
+  },
+
+  "multiSelectCheckboxes": {
+    "select": "בחר"
+  },
 
   "emotions": {
     "JOY": "שמחה",

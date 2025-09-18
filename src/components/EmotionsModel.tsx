@@ -1,15 +1,16 @@
 import {globalStyles} from "../styles/globalStyles";
-import { View, Text, StyleSheet, Modal, TouchableOpacity, I18nManager} from "react-native";
+import {View, Text, StyleSheet, Modal, TouchableOpacity, I18nManager, ImageBackground,  ScrollView as DefaultScrollView} from "react-native";
 import {Emotion} from "../models/Emotion";
 import Slider from "@react-native-community/slider";
 import {COLORS} from "../styles/themConstants";
 import {useTranslation} from "react-i18next";
 import React, {JSX, useState} from "react";
+import {backgroundImg} from "@/assets";
 
 
 
 interface EmotionsProps {
-     emotions: Emotion[];
+    emotions: Emotion[];
     onPress: () => void;
 }
 
@@ -18,6 +19,8 @@ export default function EmotionsModel({ emotions,onPress }: EmotionsProps): JSX.
     console.log("EmotionsModel");
     const {t} = useTranslation();
     const [isModalVisible,setIsModalVisible]= useState(true);
+
+
     const closeModel = () => {
         setIsModalVisible(false);
         onPress();
@@ -32,56 +35,63 @@ export default function EmotionsModel({ emotions,onPress }: EmotionsProps): JSX.
             presentationStyle="pageSheet"
             onRequestClose={ onPress }
         >
+            <ImageBackground
+                source={backgroundImg}
+                style={globalStyles.background}
+                resizeMode="stretch"
+            >
+                <View style={styles.container}>
 
-            <View style={styles.container}>
+                    <View style={styles.heading}>
+                        <Text style={styles.headingText}>{t("case.emotions")}:</Text>
+                    </View>
 
-                <View style={styles.heading}>
-                    <Text style={styles.headingText}>{t("case.emotions")}:</Text>
-                </View>
 
-                <View style={styles.modalContent}>
 
                     {emotions.length === 0 ? (
-
-                        <View style={styles.noEmotionsContainer}>
-                            <Text style={styles.noEmotionsText}>
-                                {t("emotionCard.no emotions text")}
-                            </Text>
+                        <View style={[styles.modalContent, styles.noEmotionsContent]}>
+                            <Text style={styles.noEmotionsText}>{t("emotionModel.no emotions text")}</Text>
                         </View>
+
                     ) : (
-                        emotions.map((emotion: Emotion, idx: number) => (
-                            <View key={idx} style={styles.sliderContainer}>
-                                <Text style={styles.sliderLabel}>
-                                    {t(`emotions.${emotion.getEmotion}`)}
-                                </Text>
-                                <View style={styles.sliderWithMarkings}>
-                                    <Slider
-                                        style={styles.slider}
-                                        value={emotion.getIntensity}
-                                        minimumValue={0}
-                                        maximumValue={100}
-                                        step={1}
-                                        minimumTrackTintColor={COLORS.primary}
-                                        maximumTrackTintColor={COLORS.accent}
-                                        thumbTintColor={COLORS.primary}
-                                        disabled // <-- Important: read-only
-                                    />
-                                    <View style={styles.markingsContainer}>
-                                        {
-                                            [...Array(11)].map((_, i) => (
-                                                    <View  key={i}  style={[ styles.sliderMark, { left: `${i * 10}%` }]}>
-                                                        <View style={styles.markLine} />
-                                                    </View>
-                                                )
-                                            )
-                                        }
+                        <View style={styles.modalContent}>
+
+                            <DefaultScrollView style={styles.scrollView} contentContainerStyle={{paddingBottom: 16, }}>
+                                {emotions.map((emotion: Emotion, idx: number) => (
+                                    <View key={idx} style={styles.sliderContainer}>
+                                        <Text style={styles.sliderLabel}>
+                                            {t(`emotions.${emotion.getEmotion}`)}
+                                        </Text>
+                                        <View style={styles.sliderWithMarkings}>
+                                            <Slider
+                                                style={styles.slider}
+                                                value={emotion.getIntensity}
+                                                minimumValue={0}
+                                                maximumValue={100}
+                                                step={1}
+                                                minimumTrackTintColor={COLORS.primary}
+                                                maximumTrackTintColor={COLORS.accent}
+                                                thumbTintColor={COLORS.primary}
+                                                disabled
+                                            />
+                                            <View style={styles.markingsContainer}>
+                                                {
+                                                    [...Array(11)].map((_, i) => (
+                                                            <View  key={i}  style={[ styles.sliderMark, { left: `${i * 10}%` }]}>
+                                                                <View style={styles.markLine} />
+                                                            </View>
+                                                        )
+                                                    )
+                                                }
+                                            </View>
+                                        </View>
+                                        <Text style={styles.intensityValue}>
+                                            {emotion.getIntensity}%
+                                        </Text>
                                     </View>
-                                </View>
-                                <Text style={styles.intensityValue}>
-                                    {emotion.getIntensity}%
-                                </Text>
-                            </View>
-                        ))
+                                ))}
+                            </DefaultScrollView>
+                        </View>
                     )}
                 </View>
                 <View style={styles.buttonContainer}>
@@ -89,9 +99,9 @@ export default function EmotionsModel({ emotions,onPress }: EmotionsProps): JSX.
                         <Text style={globalStyles.buttonText}>{t("navigation.back")}</Text>
                     </TouchableOpacity>
                 </View>
-            </View>
-        </Modal>
-    );
+        </ImageBackground>
+</Modal>
+);
 }
 
 
@@ -114,26 +124,39 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         textAlign: I18nManager.isRTL ? 'right' : 'left',
     },
+
     modalContent:{
-        padding: 10,
-        backgroundColor: COLORS.background,
-        borderWidth: 2,
-        borderColor:'black',
-    },
-    buttonContainer: {
-        alignItems: 'center',
-    },
-    noEmotionsContainer: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 20,
+        padding: 10,
+        marginBottom: 30,
     },
+    noEmotionsContent:{
+        backgroundColor: 'rgba(171,179,210,0.56)',
+        borderWidth:2,
+        borderColor: 'black',
+        borderRadius: 11,
+        marginBottom: 80,
+
+    },
+
+    scrollView: {
+        borderColor: '#000020',
+    },
+
+    buttonContainer: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 16,
+        alignItems: 'center',
+    },
+
     noEmotionsText: {
-        fontSize: 18,
+        fontSize: 30,
         lineHeight: 28,
-        textAlign: 'center',
-        color: '#666',
+        padding: 5,
+        textAlign: I18nManager.isRTL ? 'right' : 'left',
+        color: '#060000',
     },
 
     sliderContainer: {
@@ -141,7 +164,8 @@ const styles = StyleSheet.create({
         marginBottom: 25,
         width: '100%',
         borderWidth: 2,
-        borderColor: COLORS.accent,
+        borderRadius:25,
+        borderColor: COLORS.black,
     },
     sliderLabel: {
         fontSize: 18,

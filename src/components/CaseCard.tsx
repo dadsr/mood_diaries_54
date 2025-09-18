@@ -1,4 +1,4 @@
-import React, {JSX, useState} from "react";
+import React, {JSX, useEffect, useState} from "react";
 import {Button, Card, Text} from "react-native-paper";
 import {Case} from "../models/Case";
 import {router} from "expo-router";

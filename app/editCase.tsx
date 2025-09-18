@@ -1,7 +1,6 @@
 import React, {JSX, useEffect, useState} from "react";
 import {
-    Animated,
-    I18nManager,
+    BackHandler,
     ImageBackground,
     Modal,
     ScrollView as DefaultScrollView,
@@ -11,11 +10,10 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
-import {SafeAreaView } from 'react-native-safe-area-context';
+import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {globalStyles, nbsp} from "../src/styles/globalStyles";
 import {router, useLocalSearchParams} from "expo-router";
-import {useSafeAreaInsets} from "react-native-safe-area-context";
 import {CaseFormValues} from "../src/models/Types";
 import {Controller, useForm} from "react-hook-form";
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -29,7 +27,6 @@ import services from "../src/services/Services";
 import MultiSelectCheckboxes from "../src/components/multiSelectCheckboxes";
 import {DistortionsThoughtKey, distortionsThoughtsArray} from "../src/models/consts/DistortionsThoughtsConst";
 import {EmotionsSelector} from "../src/components/emotionsSelector";
-
 
 
 export default function EditCase(): JSX.Element {
@@ -56,6 +53,7 @@ export default function EditCase(): JSX.Element {
             id: 0,
             caseName: '',
             caseDate: new Date(),
+            caseDescription: '',
             thought: '',
             emotions: [] as Emotion[],
             behavior: '',
@@ -73,6 +71,7 @@ export default function EditCase(): JSX.Element {
                     setValue('id', myCase.id);
                     setValue('caseName', myCase.caseName!);
                     setValue('caseDate', myCase.caseDate!);
+                    setValue('caseDescription', myCase.caseDescription!);
                     setValue('thought', myCase.thought!);
                     setValue('behavior', myCase.behavior!);
                     setValue('symptoms', myCase.symptoms!);
@@ -86,6 +85,29 @@ export default function EditCase(): JSX.Element {
         }
     }, [id,setValue]);
 
+    const handleBack  = () => {
+        if (diary === 1) {
+            router.replace('/firstDiary');
+        } else if (diary === 2) {
+            router.replace('/secondDiary');
+        } else {
+            router.back();
+        }
+    }
+
+    useEffect(() => {
+        const backAction = () => {
+            handleBack();
+            return true;
+        };
+
+        const backHandler = BackHandler.addEventListener(
+            'hardwareBackPress',
+            backAction
+        );
+
+        return () => backHandler.remove();
+    }, [diary]);
 
     const openEmotionsModal = () => setIsEmotionsModalVisible(true);
     const closeEmotionsModal = () => setIsEmotionsModalVisible(false);
@@ -114,6 +136,7 @@ export default function EditCase(): JSX.Element {
         caseInstance.id = data.id;
         caseInstance.caseName = data.caseName;
         caseInstance.caseDate = data.caseDate;
+        caseInstance.caseDescription = data.caseDescription;
         caseInstance.thought = data.thought;
         caseInstance.emotions = data.emotions.map((emotion:Emotion) => new Emotion(emotion.getEmotion, emotion.getIntensity));
         caseInstance.behavior = data.behavior;
@@ -127,13 +150,7 @@ export default function EditCase(): JSX.Element {
             } else {
                 await services.addCase(diary, caseInstance);
             }
-            if (diary === 1) {
-                router.replace('/firstDiary');
-            } else if (diary === 2) {
-                router.replace('/secondDiary');
-            } else {
-                router.back();
-            }
+            handleBack();
         } catch (error) {
             console.error("Error saving case:", error);
         } finally {
@@ -142,21 +159,19 @@ export default function EditCase(): JSX.Element {
     };
 
 
-
-
     return (
+        <ImageBackground
+            source={backgroundImg}
+            style={globalStyles.background}
+            resizeMode="stretch"
+        >
+            <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
 
-        <SafeAreaView style={[globalStyles.container, { paddingTop: insets.top }]}>
-            <ImageBackground
-                source={backgroundImg}
-                style={globalStyles.background}
-                resizeMode="stretch"
-            >
-                <DefaultScrollView contentContainerStyle={styles.scrollContainer}>
+                <DefaultScrollView  style = {styles.scrollView}>
 
                     <Text style = {globalStyles.heading}>{t("editCase.editing event")}:</Text>
 
-                    {/* description */}
+                    {/* event name */}
                     <Text style={styles.label}>{t("editCase.eventName")}{':' + nbsp}</Text>
                     <Controller
                         control={control}
@@ -203,6 +218,22 @@ export default function EditCase(): JSX.Element {
                         )}
                     />
 
+                    {/* description */}
+                    <Text style={styles.label}>{t("editCase.description")}{':' + nbsp}</Text>
+                    <Controller
+                        control={control}
+                        name="caseDescription"
+                        render={({ field: { onChange, value } }) => (
+                            <TextInput
+                                style={[styles.input, styles.textarea]}
+                                value={value}
+                                onChangeText={onChange}
+                                multiline={true}
+                                numberOfLines={4}
+                            />
+                        )}
+                    />
+
                     {/* Thought Field */}
                     <Text style={styles.label}>{t("editCase.thought")}{':' + nbsp}</Text>
                     <Controller
@@ -231,47 +262,6 @@ export default function EditCase(): JSX.Element {
                             <Text style={styles.emotionsTitle}>{t("editCase.emotions selection")}</Text>
                         </TouchableOpacity>
                     </ImageBackground>
-
-
-
-
-                        <Modal
-                            visible={isEmotionsModalVisible}
-                            animationType="fade"
-                            presentationStyle="pageSheet"
-                            onRequestClose={closeEmotionsModal}
-                        >
-                            <SafeAreaView style={styles.modalContainer}>
-                                <View style={styles.modalHeader}>
-                                    {/*exit*/}
-                                    <TouchableOpacity onPress={closeEmotionsModal}>
-                                        <Text style={styles.exitButton}>↩</Text>
-                                    </TouchableOpacity>
-
-                                    {/*title*/}
-                                    <Text style={styles.modalTitle}>
-                                        {t("editCase.emotions selection")}
-                                    </Text>
-                                    <View style={{ width: 30 }} />
-                                </View>
-
-                                <View style={{ flex: 1 }}>
-                                    <EmotionsSelector diary={diary} control={control} name="emotions" />
-                                </View>
-
-                                <View style={styles.footerContainer}>
-                                    <TouchableOpacity
-                                        style={styles.footerButton}
-                                        onPress={closeEmotionsModal}>
-                                        <Text style={styles.footerButtonText}>{t("editCase.save")}</Text>
-                                    </TouchableOpacity>
-                                </View>
-
-                            </SafeAreaView>
-                        </Modal>
-
-
-
 
                     {/* behavior 1st diary */}
                     {diary === 1 && (
@@ -328,49 +318,6 @@ export default function EditCase(): JSX.Element {
                                 </TouchableOpacity>
                             </ImageBackground>
 
-
-                            <Modal
-                                visible={isThoughtsModalVisible}
-                                animationType="slide"
-                                onRequestClose={closeThoughtsModal}
-                            >
-                                <SafeAreaView style={styles.modalContainer}>
-                                    <View style={styles.modalHeader}>
-                                        {/*exit*/}
-                                        <TouchableOpacity onPress={closeThoughtsModal}>
-                                            <Text style={styles.exitButton}>↩</Text>
-                                        </TouchableOpacity>
-
-                                        {/*title*/}
-                                        <Text style={styles.modalTitle}>
-                                            {t("editCase.distortion thoughts selection")}
-                                        </Text>
-                                        <View style={{ width: 30 }} />
-                                    </View>
-
-                                    <View style={{ flex: 1 }}>
-                                        <MultiSelectCheckboxes
-                                            options={distortionsThoughtsArray}
-                                            headerText={t("editCase.distortion thoughts")}
-                                            initialSelected={initialSelectedIds}
-                                            onSelectionChange={setSelectedDistortions}
-                                        />
-                                    </View>
-
-                                    <View style={styles.footerContainer}>
-                                        <TouchableOpacity
-                                            style={styles.footerButton}
-                                            onPress={handleDistortionsSave}>
-                                            <Text style={styles.footerButtonText}>{t("editCase.save")}</Text>
-                                        </TouchableOpacity>
-                                    </View>
-
-                                </SafeAreaView>
-
-                            </Modal>
-
-
-
                             {/*  Counter thoughts Field 2st diary */}
 
                             <Text style={styles.label} >{t("editCase.counter thoughts")}{':' + nbsp}</Text>
@@ -406,12 +353,101 @@ export default function EditCase(): JSX.Element {
                     </TouchableOpacity>
 
                 </DefaultScrollView>
-            </ImageBackground>
-        </SafeAreaView>
+
+
+                {/*EmotionsModal*/}
+                <Modal
+                    visible={isEmotionsModalVisible}
+                    animationType="fade"
+                    presentationStyle="pageSheet"
+                    onRequestClose={closeEmotionsModal}
+                >
+                    <SafeAreaView style={styles.modalContainer}>
+                        <View style={styles.modalHeader}>
+                            {/*exit*/}
+                            <TouchableOpacity onPress={closeEmotionsModal}>
+                                <Text style={styles.exitButton}>↩</Text>
+                            </TouchableOpacity>
+
+                            {/*title*/}
+                            <Text style={styles.modalTitle}>
+                                {t("editCase.emotions selection")}
+                            </Text>
+                            <View style={{ width: 30 }} />
+                        </View>
+
+                        <View style={{ flex: 1 }}>
+                            <EmotionsSelector diary={diary} control={control} name="emotions" />
+                        </View>
+
+                        <View style={styles.footerContainer}>
+                            <TouchableOpacity
+                                style={styles.footerButton}
+                                onPress={closeEmotionsModal}>
+                                <Text style={styles.footerButtonText}>{t("editCase.save")}</Text>
+                            </TouchableOpacity>
+                        </View>
+
+                    </SafeAreaView>
+                </Modal>
+
+                {/*ThoughtsModal*/}
+                <Modal
+                    visible={isThoughtsModalVisible}
+                    animationType="slide"
+                    onRequestClose={closeThoughtsModal}
+                >
+                    <SafeAreaView style={styles.modalContainer}>
+                        <View style={styles.modalHeader}>
+                            {/*exit*/}
+                            <TouchableOpacity onPress={closeThoughtsModal}>
+                                <Text style={styles.exitButton}>↩</Text>
+                            </TouchableOpacity>
+
+                            {/*title*/}
+                            <Text style={styles.modalTitle}>
+                                {t("editCase.distortion thoughts selection")}
+                            </Text>
+                            <View style={{ width: 30 }} />
+                        </View>
+
+                        <View style={{ flex: 1 }}>
+                            <MultiSelectCheckboxes
+                                options={distortionsThoughtsArray}
+                                headerText={t("editCase.distortion thoughts")}
+                                initialSelected={initialSelectedIds}
+                                onSelectionChange={setSelectedDistortions}
+                            />
+                        </View>
+
+                        <View style={styles.footerContainer}>
+                            <TouchableOpacity
+                                style={styles.footerButton}
+                                onPress={handleDistortionsSave}>
+                                <Text style={styles.footerButtonText}>{t("editCase.save")}</Text>
+                            </TouchableOpacity>
+                        </View>
+
+                    </SafeAreaView>
+
+                </Modal>
+
+
+            </SafeAreaView>
+        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        paddingHorizontal: 25,
+    },
+
+    scrollView: {
+        borderColor: '#000020',
+    },
+
     scrollContainer: {
         padding: 16,
         flexGrow: 1,

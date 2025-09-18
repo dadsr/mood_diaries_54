@@ -30,14 +30,6 @@ export const globalStyles = StyleSheet.create({
         height: '100%',
     },
 
-    scrollView: {
-        borderColor: '#000020',
-        width: '100%',
-        marginBottom: 5,
-    },
-
-
-
     /***********************
      * Settings
      * ********************/

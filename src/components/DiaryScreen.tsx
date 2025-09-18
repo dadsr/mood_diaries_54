@@ -17,7 +17,6 @@ type DiaryProps = {
 
 export default function DiaryScreen({ diary }: DiaryProps): JSX.Element {
     console.log("DiaryScreen ",diary);
-    // ALWAYS force RTL to be true regardless of languager
 
     I18nManager.allowRTL(true);
     I18nManager.forceRTL(true);
@@ -44,13 +43,14 @@ export default function DiaryScreen({ diary }: DiaryProps): JSX.Element {
 
 
     return (
-        <SafeAreaView  style = {[styles.container, {
-            paddingTop: Math.max(insets.top + 8,20),
-            paddingBottom: Math.max(insets.bottom - 25,20)}]}>
+        <SafeAreaView
+            style = {[styles.container]}
+            edges={['top', 'right', 'left']}
+        >
 
             <Text style = {globalStyles.heading}>{t("diary.events list")}:</Text>
 
-            <DefaultScrollView  style = {globalStyles.scrollView}>
+            <DefaultScrollView  style = {styles.scrollView}>
                 {cases.length > 0 ?(
                     cases.map(c =>
                         <CaseCard key={c.id} diary={diary} moodCase={c} />
@@ -70,8 +70,8 @@ export default function DiaryScreen({ diary }: DiaryProps): JSX.Element {
                 onPress={addNewCase}
                 style={{
                     position: "absolute",
-                    [I18nManager.isRTL ? "left" : "right"]: 16,
-                    bottom: insets.bottom - 15 ,
+                    [I18nManager.isRTL ? "left" : "right"]: 10,
+                    bottom: insets.bottom - 5 ,
                     backgroundColor: COLORS.secondary
                 }}
             />
@@ -84,10 +84,10 @@ export default function DiaryScreen({ diary }: DiaryProps): JSX.Element {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingHorizontal: 20,
-        paddingVertical: 50,
     },
-
+    scrollView: {
+        borderColor: '#000020',
+    },
     noEventsContainer: {
 
     },
@@ -101,6 +101,5 @@ const styles = StyleSheet.create({
         lineHeight: 24,
         marginBottom: 20,
     }
-
 
 });

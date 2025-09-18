@@ -53,6 +53,7 @@
     "eventName": "Event Name",
     "date": "Date",
     "event date": "Event Date",
+    "description": "Event Description",
     "thought": "Thought",
     "emotions": "Emotions",
     "emotions selection": "Emotions Selection",
@@ -73,10 +74,14 @@
     "intensityLabel": "Intensity"
   },
 
-  "emotionCard": {
+  "emotionModel": {
     "no emotions text": "No emotions saved. Set emotions for the event in the edit screen."
-
   },
+
+  "distortionThoughtsModel": {
+    "no distortionThoughts text": "No Distortion Thoughts saved. Set Distortion Thoughts for the event in the edit screen."
+  },
+
   "multiSelectCheckboxes": {
     "select": "Select"
   },
