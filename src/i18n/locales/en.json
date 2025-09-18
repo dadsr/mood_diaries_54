@@ -16,6 +16,7 @@
     "cases cleared": " Diary cleared successfully"
   },
 
+
   "about": {
     "infoHeading": "Yael Chapal - Emotional Coach and Certified Therapist in NLP and LICBT Approach",
     "infoText": "Owner of a private clinic specializing in dealing with anxiety, emotional regulation, life transitions and personal empowerment.\nCertified NLP lecturer in professional training programs.\nConducts workshops and lectures for diverse audiences.\n",
@@ -84,6 +85,19 @@
 
   "multiSelectCheckboxes": {
     "select": "Select"
+  },
+
+  "exportDiary": {
+    "id": "ID",
+    "caseDate": "Date",
+    "caseName": "Name",
+    "caseDescription": "Description",
+    "thoughts": "Thoughts",
+    "emotions": "Emotions",
+    "behavior": "Behavior",
+    "symptoms": "Symptoms",
+    "distortions": "Distortions",
+    "counterThoughts": "Counter Thoughts"
   },
 
   "emotions": {

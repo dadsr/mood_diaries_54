@@ -5,11 +5,11 @@ import {router} from "expo-router";
 import services from "../services/Services";
 import {globalStyles} from "../styles/globalStyles";
 import {I18nManager, ImageBackground, StyleSheet, TouchableOpacity, View} from "react-native";
-import {useTranslation} from "react-i18next";
 import {displayImg} from "../../assets";
 import {COLORS} from "../styles/themConstants";
 import EmotionCard from "@/src/components/EmotionsModel";
 import DistortionThoughtsModel from "@/src/components/DistortionThoughtsModel";
+import {useTranslation} from "react-i18next";
 
 interface CaseProps {
     diary: number;
@@ -18,7 +18,8 @@ interface CaseProps {
 
 export default function CaseCard({diary,moodCase}: CaseProps): JSX.Element {
     console.log("CaseCard");
-    const { t } = useTranslation();
+    const {t} = useTranslation();
+
 
     const [isEmotionsModalVisible, setIsEmotionsModalVisible] = useState(false);
     const [isDistortionsModalVisible, setIsDistortionsModalVisible] = useState(false);

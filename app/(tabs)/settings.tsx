@@ -7,6 +7,7 @@ import {globalStyles} from "../../src/styles/globalStyles";
 import services from "../../src/services/Services";
 import {JSX, useState} from "react";
 import {settingsImg} from "../../assets";
+import ExportButton from "@/src/components/ExportButton";
 
 
 export default function Settings(): JSX.Element {
@@ -94,6 +95,12 @@ export default function Settings(): JSX.Element {
                         <Text style={globalStyles.snackbarText}>{t('settings.cases cleared')}</Text>
                     </Snackbar>
 
+                    <View style={{ flex: 1, padding: 20 }}>
+                        <Text style={{ fontSize: 20, marginBottom: 20 }}>My Diary</Text>
+                        {/* Place the ExportButton wherever you want the share buttons to appear */}
+                        <ExportButton diary={1} />
+                        <ExportButton diary={2} />
+                    </View>
 
                 </View>
             </SafeAreaView>

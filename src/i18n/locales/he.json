@@ -87,6 +87,20 @@
     "select": "בחר"
   },
 
+  "exportDiary": {
+    "id": "מזהה",
+    "caseDate": "Date",
+    "caseName": "Name",
+    "caseDescription": "תאור",
+    "thoughts": "מחשבות",
+    "emotions": "רגשות",
+    "behavior": "התנהגויות",
+    "symptoms": "סימפטומים",
+    "distortions": "עיוותי חשיבה",
+    "counterThoughts": "מחשבות חליפיות"
+  },
+
+
   "emotions": {
     "JOY": "שמחה",
     "HAPPINESS": "אושר",
