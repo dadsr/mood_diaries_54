@@ -61,7 +61,7 @@
     "behavior": "Behavior",
     "symptoms": "Symptoms",
     "save": "Save",
-
+    "saving": "Saving",
 
     "distortion thoughts" : "Distortion thoughts",
     "distortion thoughts selection" : "Distortion thoughts selection",
@@ -88,6 +88,7 @@
   },
 
   "exportDiary": {
+    "noCasesFound": "No events found.",
     "id": "ID",
     "caseDate": "Date",
     "caseName": "Name",
@@ -97,8 +98,13 @@
     "behavior": "Behavior",
     "symptoms": "Symptoms",
     "distortions": "Distortions",
-    "counterThoughts": "Counter Thoughts"
-  },
+    "counterThoughts": "Counter Thoughts",
+
+    "exportError" : "Error on Exporting",
+    "noSharing": "Sharing failed",
+    "share": "Share",
+    "exportError": "Error on Exporting"
+},
 
   "emotions": {
     "JOY": "Joy",

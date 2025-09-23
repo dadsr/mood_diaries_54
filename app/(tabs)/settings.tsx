@@ -24,8 +24,6 @@ export default function Settings(): JSX.Element {
         setSnackbarVisible(true);
     };
 
-
-
     return (
         <ImageBackground
             source={settingsImg}
@@ -97,7 +95,6 @@ export default function Settings(): JSX.Element {
 
                     <View style={{ flex: 1, padding: 20 }}>
                         <Text style={{ fontSize: 20, marginBottom: 20 }}>My Diary</Text>
-                        {/* Place the ExportButton wherever you want the share buttons to appear */}
                         <ExportButton diary={1} />
                         <ExportButton diary={2} />
                     </View>

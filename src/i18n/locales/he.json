@@ -62,6 +62,7 @@
     "behavior": "התנהגויות",
     "symptoms": "סימפטומים",
     "save": "שמירה",
+    "saving": "שמירה",
 
     "distortion thoughts" : "עיוותי חשיבה",
     "distortion thoughts selection" : "בחירת עיוותי חשיבה",
@@ -88,6 +89,7 @@
   },
 
   "exportDiary": {
+    "noCasesFound": "לא נמצאו אירועים",
     "id": "מזהה",
     "caseDate": "Date",
     "caseName": "Name",
@@ -97,7 +99,13 @@
     "behavior": "התנהגויות",
     "symptoms": "סימפטומים",
     "distortions": "עיוותי חשיבה",
-    "counterThoughts": "מחשבות חליפיות"
+    "counterThoughts": "מחשבות חליפיות",
+
+
+    "exportError" : "תקלה בשיתוף",
+    "noSharing": "שיתוף יומנים נכשל",
+    "share": "שתף",
+    "exportError": "שגיאה בשיתוף"
   },
 
 
