@@ -65,7 +65,7 @@ export default function EmotionsModel({ emotions,onPress }: EmotionsProps): JSX.
                                         <View style={styles.sliderWithMarkings}>
                                             <Slider
                                                 style={styles.slider}
-                                                value={emotion.getIntensity}
+                                                value={100-emotion.getIntensity}
                                                 minimumValue={0}
                                                 maximumValue={100}
                                                 step={1}
@@ -77,7 +77,7 @@ export default function EmotionsModel({ emotions,onPress }: EmotionsProps): JSX.
                                             <View style={styles.markingsContainer}>
                                                 {
                                                     [...Array(11)].map((_, i) => (
-                                                            <View  key={i}  style={[ styles.sliderMark, { left: `${i * 10}%` }]}>
+                                                            <View  key={i}  style={[ styles.sliderMark, { right: `${i * 10}%` }]}>
                                                                 <View style={styles.markLine} />
                                                             </View>
                                                         )
@@ -112,17 +112,17 @@ const styles = StyleSheet.create({
         paddingStart: 16,
         paddingEnd: 16,
         paddingTop: 20,
-        textAlign: I18nManager.isRTL ? 'right' : 'left',
+        textAlign: I18nManager.isRTL ? 'right' : 'right',
     },
 
     heading: {
-        flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+        flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row-reverse',
     },
     headingText:{
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 10,
-        textAlign: I18nManager.isRTL ? 'right' : 'left',
+        textAlign: I18nManager.isRTL ? 'right' : 'right',
     },
 
     modalContent:{
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         lineHeight: 28,
         padding: 5,
-        textAlign: I18nManager.isRTL ? 'right' : 'left',
+        textAlign: I18nManager.isRTL ? 'right' : 'right',
         color: '#060000',
     },
 
@@ -172,9 +172,10 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         marginBottom: 20,
         color: '#333',
+        textAlign: I18nManager.isRTL ? 'right' : 'right',
     },
     sliderWithMarkings: {
-        flexDirection: 'row',
+        flexDirection: 'row-reverse',
         alignItems: 'center',
         position: 'relative',
         height: 40,
@@ -187,6 +188,7 @@ const styles = StyleSheet.create({
         height: 1,
     },
     slider: {
+        flexDirection: 'row-reverse',
         flex: 1,
         height: 40,
     },
@@ -197,6 +199,7 @@ const styles = StyleSheet.create({
         color: '#333',
         marginLeft: 15,
         minWidth: 45,
+        textAlign: I18nManager.isRTL ? 'right' : 'right',
     },
 
     sliderMark: {

@@ -51,8 +51,8 @@ export function EmotionsSelector({ diary, control, name }: EmotionsSelectorProps
 
 
     const isRTL = I18nManager.isRTL;
-    const textAlign = isRTL ? 'right' : 'left';
-    const flexDirection = isRTL ? 'row-reverse' : 'row';
+    const textAlign = isRTL ? 'right' : 'right';
+    const flexDirection = isRTL ? 'row-reverse' : 'row-reverse';
 
     return (
         <View style={styles.container}>

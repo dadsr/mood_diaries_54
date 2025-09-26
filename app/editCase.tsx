@@ -1,6 +1,6 @@
 import React, {JSX, useEffect, useState} from "react";
 import {
-    BackHandler,
+    BackHandler, I18nManager,
     ImageBackground,
     Modal,
     ScrollView as DefaultScrollView,
@@ -459,6 +459,7 @@ const styles = StyleSheet.create({
         marginTop: 16,
         marginBottom: 8,
         color: '#333',
+        textAlign: I18nManager.isRTL ? 'right' : 'right',
     },
 
     input: {

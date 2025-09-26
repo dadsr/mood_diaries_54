@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     cardTitleText: {
         fontSize: 20,
         fontWeight: 'bold',
-        textAlign: I18nManager.isRTL ? 'right' : 'left',
+        textAlign: I18nManager.isRTL ? 'right' : 'right',
     },
 
     cardSubtitleText: {

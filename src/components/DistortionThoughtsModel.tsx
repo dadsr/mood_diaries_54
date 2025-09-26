@@ -97,11 +97,11 @@ const styles = StyleSheet.create({
         paddingStart: 16,
         paddingEnd: 16,
         paddingTop: 20,
-        textAlign: I18nManager.isRTL ? 'right' : 'left',
+        textAlign: I18nManager.isRTL ? 'right' : 'right',
     },
 
     heading: {
-        flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+        flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row-reverse',
         padding: 5,
     },
 
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 10,
-        textAlign: I18nManager.isRTL ? 'right' : 'left',
+        textAlign: I18nManager.isRTL ? 'right' : 'right',
     },
 
     modalContent:{
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         lineHeight: 28,
         padding: 5,
-        textAlign: I18nManager.isRTL ? 'right' : 'left',
+        textAlign: I18nManager.isRTL ? 'right' : 'right',
         color: '#060000',
     },
 
@@ -163,13 +163,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
         marginBottom: 4,
-        textAlign: I18nManager.isRTL ? 'right' : 'left',
+        textAlign: I18nManager.isRTL ? 'right' : 'right',
     },
 
     description: {
         color: '#666',
         fontSize: 14,
         lineHeight: 20,
-        textAlign: I18nManager.isRTL ? 'right' : 'left',
+        textAlign: I18nManager.isRTL ? 'right' : 'right',
     },
 });

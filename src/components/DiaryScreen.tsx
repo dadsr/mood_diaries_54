@@ -18,9 +18,6 @@ type DiaryProps = {
 export default function DiaryScreen({ diary }: DiaryProps): JSX.Element {
     console.log("DiaryScreen ",diary);
 
-    I18nManager.allowRTL(true);
-    I18nManager.forceRTL(true);
-
     const {t} = useTranslation();
 
     const insets = useSafeAreaInsets();
@@ -70,7 +67,7 @@ export default function DiaryScreen({ diary }: DiaryProps): JSX.Element {
                 onPress={addNewCase}
                 style={{
                     position: "absolute",
-                    [I18nManager.isRTL ? "left" : "right"]: 10,
+                    [I18nManager.isRTL ? "left" : "left"]: 10,
                     bottom: insets.bottom - 5 ,
                     backgroundColor: COLORS.secondary
                 }}

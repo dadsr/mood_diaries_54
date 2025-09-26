@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     },
     row: {
         flexDirection: 'row',
-        alignItems: 'flex-start',  // Changed from 'center' to 'flex-start'
+        alignItems: 'flex-start',
         paddingHorizontal: 16,
         paddingVertical: 12,
         borderBottomWidth: 1,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     },
     checkboxContainer: {
         marginRight: 12,
-        marginTop: 2  // Small offset to align with text
+        marginTop: 2
     },
     cell: {
         flex: 1,
@@ -107,12 +107,12 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
         marginBottom: 4,
-        textAlign: 'right'  // For Hebrew RTL
+        textAlign: 'right'
     },
     description: {
         color: '#666',
         fontSize: 14,
         lineHeight: 20,
-        textAlign: 'right'  // For Hebrew RTL
+        textAlign: 'right'
     }
 });
