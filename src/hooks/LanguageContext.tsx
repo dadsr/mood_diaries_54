@@ -12,6 +12,7 @@ import i18n from "i18next";
 
 type LanguageContextType = {
     isHebrew: boolean;
+    isRTL: boolean;
     toggleLanguage: () => void;
 };
 
@@ -24,6 +25,7 @@ const RTL_FLAG_KEY = "rtlConfigured";
 
 export const LanguageContext = createContext<LanguageContextType>({
     isHebrew: true,
+    isRTL: true,
     toggleLanguage: () => {},
 });
 
@@ -33,6 +35,8 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
     const [isReady, setIsReady] = useState(false);
     const [isHebrew, setIsHebrew] = useState(true);
 
+    const isRTL = isHebrew;
+
     useEffect(() => {
         const initializeLanguage = async () => {
             try {
@@ -41,19 +45,17 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
                 if (!savedLang) {
                     await AsyncStorage.setItem(STORAGE_KEY, selectedLang);
                 }
-
                 await i18n.changeLanguage(selectedLang);
                 const isHebrewLang = selectedLang.startsWith("he");
                 setIsHebrew(isHebrewLang);
 
-                // ALWAYS force RTL to be true regardless of language
                 if (!I18nManager.isRTL) {
                     I18nManager.allowRTL(true);
                     I18nManager.forceRTL(true);
+                    await AsyncStorage.setItem(RTL_FLAG_KEY, "rtl");
                 }
-
-                await AsyncStorage.setItem(RTL_FLAG_KEY, "rtl"); // Always save as RTL
                 setIsReady(true);
+
             } catch (error) {
                 console.error("❌ Error initializing language or RTL:", error);
                 setIsReady(true);
@@ -76,13 +78,11 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
             await AsyncStorage.setItem(STORAGE_KEY, newLang);
             setIsHebrew(newIsHebrew);
 
-            // ALWAYS keep RTL enabled regardless of language
             if (!I18nManager.isRTL) {
                 I18nManager.allowRTL(true);
                 I18nManager.forceRTL(true);
+                await AsyncStorage.setItem(RTL_FLAG_KEY, "rtl");
             }
-
-            await AsyncStorage.setItem(RTL_FLAG_KEY, "rtl"); // Always save as RTL
         } catch (error) {
             Alert.alert("Error", "Failed to change language. Please try again.");
         }
@@ -93,7 +93,7 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
     }
 
     return (
-        <LanguageContext.Provider value={{ isHebrew, toggleLanguage }}>
+        <LanguageContext.Provider value={{ isHebrew, isRTL, toggleLanguage }}>
             {children}
         </LanguageContext.Provider>
     );

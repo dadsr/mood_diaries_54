@@ -1,4 +1,4 @@
-import {I18nManager, StyleSheet} from 'react-native';
+import { StyleSheet} from 'react-native';
 import {COLORS} from "./themConstants";
 
 // Helpers for BiDi-safe rendering
@@ -82,19 +82,12 @@ export const globalStyles = StyleSheet.create({
         height: '100%',
     },
 
-    heading: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 10,
-        textAlign: I18nManager.isRTL ? 'right' : 'right',
-    },
 
 
     text: {
         fontSize: 16,
         marginBottom: 8,
         color: '#333',
-        textAlign: I18nManager.isRTL ? 'right' : 'right',
     },
 
     textarea:{
@@ -142,7 +135,6 @@ export const globalStyles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         marginBottom: 10,
-        textAlign: I18nManager.isRTL ? 'right' : 'right',
     },
 
     radioItem: {

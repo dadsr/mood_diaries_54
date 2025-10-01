@@ -2,18 +2,19 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import translationEn from './locales/en.json';
 import translationHe from './locales/he.json';
+import * as Localization from 'expo-localization';
 
 const resources = {
     en: { translation: translationEn },
     he: { translation: translationHe },
 };
 
-const deviceLocale ='he';
-{/*
-    Localization.getLocales && Localization.getLocales().length > 0
-        ? Localization.getLocales()[0].languageTag
-        : 'he';
-*/}
+
+const deviceLocale = Localization.getLocales && Localization.getLocales().length > 0
+  ? Localization.getLocales()[0].languageTag
+  : 'he';
+
+
 console.log("📱 Device locale detected:", deviceLocale);
 
 i18n
@@ -23,17 +24,13 @@ i18n
         lng: deviceLocale,
         fallbackLng: 'he',
         debug: true,
-
         interpolation: {
-            escapeValue: false
+            escapeValue: false,
         },
-
-        returnEmptyString: false, // Return key instead of empty string for missing translations
-
+        returnEmptyString: false,
         react: {
             useSuspense: false,
         },
-
     });
 
 console.log("🌐 i18n initialized with fallback language:", i18n.language);

@@ -8,6 +8,7 @@ type ExportButtonProps = {
 };
 
 const ExportButton: React.FC<ExportButtonProps> = ({ diary }) => {
+    console.log("ExportButton");
     const { t } = useTranslation();
 
     const handleExport = async () => {

@@ -1,25 +1,24 @@
-import {ImageBackground, View} from "react-native";
-import {SafeAreaView } from 'react-native-safe-area-context';
-import {Button, RadioButton, Snackbar, Switch, Text} from 'react-native-paper';
-import {useTranslation} from "react-i18next";
-import {useLanguage} from "../../src/hooks/LanguageContext";
-import {globalStyles} from "../../src/styles/globalStyles";
+import React, {JSX, useState } from "react";
+import { ImageBackground, View, StyleSheet } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Button, RadioButton, Snackbar, Switch, Text } from 'react-native-paper';
+import { useTranslation } from "react-i18next";
+import { useLanguage } from "../../src/hooks/LanguageContext";
+import { globalStyles, nbsp } from "../../src/styles/globalStyles";
 import services from "../../src/services/Services";
-import {JSX, useState} from "react";
-import {settingsImg} from "../../assets";
+import { settingsImg } from "../../assets";
 import ExportButton from "@/src/components/ExportButton";
 
-
 export default function Settings(): JSX.Element {
+    console.log("Settings");
 
     const { t } = useTranslation();
-    const { isHebrew, toggleLanguage } = useLanguage();
+    const { isHebrew, toggleLanguage, isRTL } = useLanguage();
+
     const [snackbarVisible, setSnackbarVisible] = useState(false);
     const [selectedDiary, setSelectedDiary] = useState(1);
 
-
-
-    const clearDiary = (diary:number) => {
+    const clearDiary = (diary: number) => {
         services.clearCases(diary);
         setSnackbarVisible(true);
     };
@@ -30,54 +29,66 @@ export default function Settings(): JSX.Element {
             style={globalStyles.background}
             resizeMode="stretch"
         >
-            <SafeAreaView style={globalStyles.container}>
-                <View style={globalStyles.settingsContainer}>
+            <SafeAreaView style={[styles.container]}>
+                <View>
+                    <Text style={[styles.heading, { textAlign: isRTL ? "right" : "left" }]}>
+                        {t("settings.title")}
+                    </Text>
 
-
-                    <View style={globalStyles.languageSwitchContainer}>
-                        <Text style={globalStyles.languageLabel}>
-                            {t('settings.English')}
+                    {/* Language selection */}
+                    <View style={styles.section}>
+                        <Text style={[styles.sectionTitle, { textAlign: isRTL ? "right" : "left" }]}>
+                            {t('settings.language')}
                         </Text>
+                        <View style={[styles.radioRow, { flexDirection: isRTL ? "row-reverse" : "row" }]}>
+                            <RadioButton
+                                value="en"
+                                status={!isHebrew ? "checked" : "unchecked"}
+                                onPress={() => toggleLanguage()}
+                            />
+                            <Text style={styles.radioLabel}>{t('settings.English')}</Text>
 
-                        <Switch
-                            value={isHebrew}
-                            onValueChange={toggleLanguage}
-                            style={globalStyles.languageSwitch}
-                        />
-
-                        <Text style={globalStyles.languageLabel}>
-                            {t('settings.Hebrew')}
-                        </Text>
+                            <RadioButton
+                                value="he"
+                                status={isHebrew ? "checked" : "unchecked"}
+                                onPress={() => toggleLanguage()}
+                            />
+                            <Text style={styles.radioLabel}>{t('settings.Hebrew')}</Text>
+                        </View>
                     </View>
 
-
-                     {/* Diary selection */}
-                    <View style={globalStyles.selectionSection}>
-                        <Text style={globalStyles.sectionTitle}>{t('settings.diaryToClear')}</Text>
+                    {/* Diary selection and clear */}
+                    <View style={styles.section}>
+                        <Text style={[styles.sectionTitle, { textAlign: isRTL ? "right" : "left" }]}>
+                            {t('settings.diaryToClear')}
+                        </Text>
                         <RadioButton.Group
                             onValueChange={newValue => setSelectedDiary(Number(newValue))}
                             value={String(selectedDiary)}
                         >
-                            <View style={globalStyles.radioItem}>
+                            <View style={[styles.radioRow, { flexDirection: isRTL ? "row-reverse" : "row" }]}>
                                 <RadioButton value="1" />
-                                <Text>{t('navigation.firstDiary')}</Text>
+                                <Text style={styles.radioLabel}>{t('navigation.firstDiary')}</Text>
                             </View>
-                            <View style={globalStyles.radioItem}>
+                            <View style={[styles.radioRow, { flexDirection: isRTL ? "row-reverse" : "row" }]}>
                                 <RadioButton value="2" />
-                                <Text>{t('navigation.secondDiary')}</Text>
+                                <Text style={styles.radioLabel}>{t('navigation.secondDiary')}</Text>
                             </View>
                         </RadioButton.Group>
+                        <Button
+                            onPress={() => clearDiary(selectedDiary)}
+                            style={globalStyles.button}
+                            labelStyle={globalStyles.buttonText}
+                        >
+                            {t('settings.clear Diary')}
+                        </Button>
                     </View>
 
-                    {/* Clear button */}
-                    <Button
-                        mode="contained"
-                        onPress={() =>clearDiary(selectedDiary)}
-                        style={globalStyles.button}
-                        labelStyle={globalStyles.snackbarText}
-                    >
-                        {t('settings.clear Diary')}
-                    </Button>
+                    {/* Data/Export */}
+                    <View style={styles.section}>
+                        <Text style={[styles.sectionTitle, { textAlign: isRTL ? "right" : "left" }]}>{t('settings.export')}</Text>
+                        <ExportButton diary={selectedDiary} />
+                    </View>
 
                     <Snackbar
                         visible={snackbarVisible}
@@ -90,17 +101,43 @@ export default function Settings(): JSX.Element {
                             onPress: () => setSnackbarVisible(false),
                         }}
                     >
-                        <Text style={globalStyles.snackbarText}>{t('settings.cases cleared')}</Text>
+                        {t('settings.cases cleared')}
                     </Snackbar>
-
-                    <View style={{ flex: 1, padding: 20 }}>
-                        <Text style={{ fontSize: 20, marginBottom: 20 }}>My Diary</Text>
-                        <ExportButton diary={1} />
-                        <ExportButton diary={2} />
-                    </View>
-
                 </View>
             </SafeAreaView>
         </ImageBackground>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        paddingHorizontal: 16,
+        justifyContent: 'center'
+    },
+    heading: {
+        fontSize: 26,
+        fontWeight: '700',
+        marginTop: 25,
+        marginBottom: 22,
+        color: '#222'
+    },
+    section: {
+        marginBottom: 32,
+    },
+    sectionTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginBottom: 8,
+        color: '#444'
+    },
+    radioRow: {
+        alignItems: 'center',
+        marginBottom: 3,
+    },
+    radioLabel: {
+        fontSize: 16,
+        color: '#222',
+        marginHorizontal: 5,
+    },
+});

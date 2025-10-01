@@ -9,6 +9,8 @@ interface TabLabelProps {
 }
 
 export default function TabLabelTranslate({ labelKey, color, focused }: TabLabelProps): JSX.Element {
+    console.log("TabLabelTranslate");
+
     const { t } = useTranslation();
 
     return (
