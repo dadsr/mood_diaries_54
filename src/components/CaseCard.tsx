@@ -82,7 +82,7 @@ export default function CaseCard({ diary, caseItem, isRTL }: CaseProps): JSX.Ele
                     </TouchableOpacity>
 
                     {isEmotionsModalVisible && (
-                        <EmotionCard  emotions={caseItem.emotions} onPress={onPressEmotionsModal} />
+                        <EmotionCard  emotions={caseItem.emotions} onPress={onPressEmotionsModal} isRTL={isRTL} />
                     )}
 
                 </ImageBackground>
@@ -119,7 +119,7 @@ export default function CaseCard({ diary, caseItem, isRTL }: CaseProps): JSX.Ele
                             </TouchableOpacity>
 
                             {isDistortionsModalVisible && (
-                                <DistortionThoughtsModel  distortionThoughts={caseItem.distortions} onPress={onPressDistortionsModal} />
+                                <DistortionThoughtsModel  distortionThoughts={caseItem.distortions} onPress={onPressDistortionsModal} isRTL={isRTL} />
                             )}
                         </ImageBackground>
                         {/* counterThoughts */}
