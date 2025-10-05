@@ -1,15 +1,15 @@
-import React, {JSX, useEffect, useState} from "react";
+import React, {JSX, useMemo, useState} from "react";
 import {Button, Card, Text} from "react-native-paper";
 import {Case} from "../models/Case";
 import {router} from "expo-router";
 import services from "../services/Services";
 import {globalStyles, nbsp} from "../styles/globalStyles";
-import {I18nManager, ImageBackground, StyleSheet, TouchableOpacity, View} from "react-native";
+import {ImageBackground, TouchableOpacity, View} from "react-native";
 import {displayImg} from "../../assets";
-import {COLORS, THEME_CONSTANTS} from "../styles/themConstants";
 import EmotionCard from "@/src/components/EmotionsModel";
 import DistortionThoughtsModel from "@/src/components/DistortionThoughtsModel";
 import {useTranslation} from "react-i18next";
+import {CreateCaseCardStyles} from "@/src/styles/caseCardStyles";
 
 interface CaseProps {
     diary: number;
@@ -20,6 +20,7 @@ interface CaseProps {
 export default function CaseCard({ diary, caseItem, isRTL }: CaseProps): JSX.Element {
     console.log("CaseCard");
     const {t} = useTranslation();
+    const styles = useMemo(() => CreateCaseCardStyles(isRTL), [isRTL]);
 
     const [isEmotionsModalVisible, setIsEmotionsModalVisible] = useState(false);
     const [isDistortionsModalVisible, setIsDistortionsModalVisible] = useState(false);
@@ -45,84 +46,6 @@ export default function CaseCard({ diary, caseItem, isRTL }: CaseProps): JSX.Ele
                 break;
         }
     };
-
-    const styles = StyleSheet.create({
-        card: {
-            flexDirection: isRTL ? 'row-reverse' : 'row',
-            backgroundColor: COLORS.white,
-            borderRadius: 8,
-            padding: 12,
-            marginVertical: 10,
-            borderWidth: 2,
-            borderColor: COLORS.black,
-            elevation: 3,
-            shadowColor: '#000',
-            shadowOpacity: 0.2,
-            shadowRadius: 3,
-            shadowOffset: { width: 0, height: 2 },
-        },
-
-        cardTitleContainer: {
-            paddingVertical: 8,
-            paddingHorizontal: 10,
-            marginBottom: 10,
-        },
-
-        cardTitleContent: {
-            alignItems: 'center',
-        },
-
-        cardTitleText: {
-            fontSize: 20,
-            fontWeight:THEME_CONSTANTS.TYPOGRAPHY.WEIGHTS.BOLD ,
-            textAlign: isRTL ? 'right' : 'left',
-        },
-
-        cardSubtitleText: {
-            fontSize: 12,
-            opacity: 0.8,
-            textAlign:'center',
-        },
-
-        text: {
-            fontSize: 16,
-            fontWeight:THEME_CONSTANTS.TYPOGRAPHY.WEIGHTS.REGULAR ,
-            marginBottom: 8,
-            color: '#333',
-            textAlign: isRTL ? 'right' : 'left',
-        },
-        label:{
-            fontWeight:THEME_CONSTANTS.TYPOGRAPHY.WEIGHTS.BOLD ,
-            fontSize:18,
-            textAlign: isRTL ? 'right' : 'left',
-        },
-        linkText: {
-            fontSize: 16,
-            fontWeight:THEME_CONSTANTS.TYPOGRAPHY.WEIGHTS.BOLD ,
-            color: COLORS.black,
-            textAlign: 'center',
-        },
-
-
-
-        actionsButtonsContainer: {
-            flexDirection: isRTL ? 'row-reverse' : 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginTop: 8,
-        },
-
-        actionButtonWrap: {
-            width: '48%',
-        },
-
-        actionsButton: {
-            borderRadius: 12,
-            paddingVertical: 6,
-            backgroundColor: COLORS.primary,
-        },
-    });
-
 
     return (
         <Card style={styles.card}>

@@ -1,4 +1,4 @@
-import {JSX, useCallback, useState} from "react";
+import {JSX, useCallback, useMemo, useState} from "react";
 import {FAB} from "react-native-paper";
 import {router, useFocusEffect} from "expo-router";
 import {ScrollView as DefaultScrollView, StyleSheet, Text, View} from "react-native";
@@ -8,6 +8,8 @@ import {Case} from "../models/Case";
 import CaseCard from "./CaseCard";
 import {useTranslation} from "react-i18next";
 import {COLORS} from "@/src/styles/themConstants";
+import {createEditCaseStyles} from "@/src/styles/editCaseStyles";
+import {createDiaryScreenStyles} from "@/src/styles/diaryScreenStyles";
 
 type DiaryProps = {
     diary: number;
@@ -17,6 +19,7 @@ type DiaryProps = {
 export default function DiaryScreen({ diary, isRTL }: DiaryProps): JSX.Element {
     console.log("DiaryScreen");
     console.log("isRTL ", isRTL);
+    const styles = useMemo(() => createDiaryScreenStyles(isRTL), [isRTL]);
 
     const {t} = useTranslation();
     const insets = useSafeAreaInsets();
@@ -34,42 +37,7 @@ export default function DiaryScreen({ diary, isRTL }: DiaryProps): JSX.Element {
         router.push({pathname: '/editCase', params: {diary, id: 0}});
     };
 
-    const styles = StyleSheet.create({
-        container: {
-            flex: 1,
-            flexDirection: "column",
-        },
-        heading: {
-            fontSize: 24,
-            fontWeight: 'bold',
-            marginBottom: 10,
-            textAlign: isRTL ? "right" : "left",
-            writingDirection: isRTL ? 'rtl' : 'ltr',
-        },
 
-        noEventsContainer: {
-            alignItems: isRTL ? "flex-end" : "flex-start",
-            padding: 20,
-           },
-        noEventsTextHeader: {
-            fontSize: 18,
-            lineHeight: 24,
-            marginBottom: 20,
-            textAlign: isRTL ? "right" : "left",
-            writingDirection: isRTL ? 'rtl' : 'ltr',
-        },
-        noEventsText: {
-            fontSize: 16,
-            lineHeight: 24,
-            marginBottom: 20,
-            textAlign: isRTL ? "right" : "left",
-            writingDirection: isRTL ? 'rtl' : 'ltr',
-        },
-        scrollView: {
-            borderColor: '#000020',
-            writingDirection: isRTL ? 'rtl' : 'ltr',
-        },
-    });
 
     return (
         <SafeAreaView
