@@ -1,14 +1,13 @@
 import {JSX, useCallback, useMemo, useState} from "react";
 import {FAB} from "react-native-paper";
 import {router, useFocusEffect} from "expo-router";
-import {ScrollView as DefaultScrollView, StyleSheet, Text, View} from "react-native";
+import {ScrollView as DefaultScrollView, Text, View} from "react-native";
 import {SafeAreaView, useSafeAreaInsets} from "react-native-safe-area-context";
 import services from "../services/Services";
 import {Case} from "../models/Case";
 import CaseCard from "./CaseCard";
 import {useTranslation} from "react-i18next";
 import {COLORS} from "@/src/styles/themConstants";
-import {createEditCaseStyles} from "@/src/styles/editCaseStyles";
 import {createDiaryScreenStyles} from "@/src/styles/diaryScreenStyles";
 
 type DiaryProps = {

@@ -8,14 +8,36 @@
   },
 
   "settings": {
+    "title": "Settings",
+    "language": "Language",
     "English": "English",
     "Hebrew": "Hebrew",
     "diaryToClear": "Select Diary to Clear",
-    "clear Diary": "Clear Diary",
+    "clear Diary": "Clear",
     "ok": "OK",
-    "cases cleared": " Diary cleared successfully"
+    "cases cleared": " Diary cleared successfully",
+    "cases clear failed": " Error while deleting a calendar",
+    "export": "Export"
   },
 
+  "exportDiary": {
+    "noCasesFound": "No events found.",
+    "id": "ID",
+    "caseDate": "Date",
+    "caseName": "Name",
+    "caseDescription": "Description",
+    "thoughts": "Thoughts",
+    "emotions": "Emotions",
+    "behavior": "Behavior",
+    "symptoms": "Symptoms",
+    "distortions": "Distortions",
+    "counterThoughts": "Counter Thoughts",
+    "exportSuccess": "Exporting succeeded",
+    "exportError" : "Error on Exporting",
+    "noSharing": "Sharing failed",
+    "share": "Share",
+    "exportError": "Error on Exporting"
+  },
 
   "about": {
     "infoHeading": "Yael Chapal - Emotional Coach and Certified Therapist in NLP and LICBT Approach",
@@ -87,24 +109,7 @@
     "select": "Select"
   },
 
-  "exportDiary": {
-    "noCasesFound": "No events found.",
-    "id": "ID",
-    "caseDate": "Date",
-    "caseName": "Name",
-    "caseDescription": "Description",
-    "thoughts": "Thoughts",
-    "emotions": "Emotions",
-    "behavior": "Behavior",
-    "symptoms": "Symptoms",
-    "distortions": "Distortions",
-    "counterThoughts": "Counter Thoughts",
 
-    "exportError" : "Error on Exporting",
-    "noSharing": "Sharing failed",
-    "share": "Share",
-    "exportError": "Error on Exporting"
-},
 
   "emotions": {
     "JOY": "Joy",

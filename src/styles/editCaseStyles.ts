@@ -81,9 +81,11 @@ export const createEditCaseStyles = (isRTL:boolean,insets:EdgeInsets) => StyleSh
         },
         modalContainer: {
             flex: 1,
-            backgroundColor: '#fff'
+            backgroundColor: '#fff',
+
         },
         modalHeader: {
+            flexDirection: isRTL ? "row-reverse" : "row",
             justifyContent: 'space-between',
             alignItems: 'center',
             paddingHorizontal: 16,

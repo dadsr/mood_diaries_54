@@ -5,7 +5,7 @@ import {router} from "expo-router";
 import services from "../services/Services";
 import {globalStyles, nbsp} from "../styles/globalStyles";
 import {ImageBackground, TouchableOpacity, View} from "react-native";
-import {displayImg} from "../../assets";
+import {modelImg} from "../../assets";
 import EmotionCard from "@/src/components/EmotionsModel";
 import DistortionThoughtsModel from "@/src/components/DistortionThoughtsModel";
 import {useTranslation} from "react-i18next";
@@ -71,7 +71,7 @@ export default function CaseCard({ diary, caseItem, isRTL }: CaseProps): JSX.Ele
 
                 {/* emotions */}
                 <ImageBackground
-                    source={displayImg}
+                    source={modelImg}
                     style={globalStyles.background}
                     resizeMode="stretch"
                 >
@@ -108,7 +108,7 @@ export default function CaseCard({ diary, caseItem, isRTL }: CaseProps): JSX.Ele
                         {/* Distortions */}
                         <View style={{ height: 20 }} />
                         <ImageBackground
-                            source={displayImg}
+                            source={modelImg}
                             style={globalStyles.background}
                             resizeMode="stretch"
                         >

@@ -159,7 +159,14 @@ export const globalStyles = StyleSheet.create({
     /** SnackBar styles */
 
     snackbar: {
-        backgroundColor:COLORS.background,
+        position: "absolute",
+        left: 24,
+        right: 24,
+        top: "40%",
+        alignSelf: "center",
+        backgroundColor: COLORS.background,
+        zIndex: 9999,
+        elevation: 8,
     },
     snackbarText: {
         color: COLORS.text,

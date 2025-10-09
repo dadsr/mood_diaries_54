@@ -10,13 +10,13 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
-import {SafeAreaView, useSafeAreaInsets} from "react-native-safe-area-context";
+import {SafeAreaView ,useSafeAreaInsets} from 'react-native-safe-area-context';
 import {globalStyles, nbsp} from "../src/styles/globalStyles";
 import {router, useLocalSearchParams} from "expo-router";
 import {CaseFormValues} from "../src/models/Types";
 import {Controller, useForm} from "react-hook-form";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import {backgroundImg, settingsImg} from "../assets";
+import {backgroundImg, modelImg, settingsImg} from "../assets";
 import {useTranslation} from "react-i18next";
 import {Emotion} from "../src/models/Emotion";
 import {DistortionThought} from "../src/models/DistortionThought";
@@ -215,7 +215,7 @@ export default function EditCase(): JSX.Element {
                     />
 
                     <Text style={styles.label}>{t("editCase.emotions")}{':' + nbsp}</Text>
-                    <ImageBackground source={settingsImg} style={globalStyles.background} resizeMode="cover">
+                    <ImageBackground source={modelImg} style={globalStyles.background} resizeMode="stretch">
                         <TouchableOpacity style={globalStyles.modelOpener} onPress={openEmotionsModal}>
                             <Text style={styles.emotionsTitle}>{t("editCase.emotions selection")}</Text>
                         </TouchableOpacity>
@@ -252,7 +252,7 @@ export default function EditCase(): JSX.Element {
                     {diary === 2 && (
                         <>
                             <Text style={styles.label}>{t("editCase.distortion thoughts")}{':' + nbsp}</Text>
-                            <ImageBackground source={settingsImg} style={globalStyles.background} resizeMode="cover">
+                            <ImageBackground source={modelImg} style={globalStyles.background} resizeMode="stretch">
                                 <TouchableOpacity style={globalStyles.modelOpener} onPress={openThoughtsModal}>
                                     <Text style={styles.emotionsTitle}>{t("editCase.distortion thoughts")}</Text>
                                 </TouchableOpacity>
