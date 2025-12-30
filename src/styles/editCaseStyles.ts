@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import {EdgeInsets} from "react-native-safe-area-context";
+import {COLORS} from "@/src/styles/themConstants";
 
 export const createEditCaseStyles = (isRTL:boolean,insets:EdgeInsets) => StyleSheet.create({
         container: {
@@ -57,7 +58,7 @@ export const createEditCaseStyles = (isRTL:boolean,insets:EdgeInsets) => StyleSh
             textAlign: isRTL ? 'right' : 'left',
         },
         submitButton: {
-            backgroundColor: '#007AFF',
+            backgroundColor: COLORS.primary,
             padding: 16,
             borderRadius: 8,
             alignItems: 'center',
@@ -92,13 +93,14 @@ export const createEditCaseStyles = (isRTL:boolean,insets:EdgeInsets) => StyleSh
             paddingVertical: 12,
             borderBottomWidth: 1,
             borderBottomColor: '#eee',
-            backgroundColor:'rgba(76,114,229,0.61)',
+            backgroundColor: COLORS.secondary,
         },
         modalTitle: {
             fontSize: 22,
             padding: 5,
             fontWeight: 'bold',
-            textAlign: 'center'
+            textAlign: 'center',
+            color:'Colors.white',
         },
         exitButton: {
             fontSize: 24,
@@ -112,7 +114,7 @@ export const createEditCaseStyles = (isRTL:boolean,insets:EdgeInsets) => StyleSh
             backgroundColor: '#fff',
         },
         footerButton: {
-            backgroundColor: '#007AFF',
+            backgroundColor: COLORS.primary,
             padding: 16,
             borderRadius: 8,
             alignItems: 'center'

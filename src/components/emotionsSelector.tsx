@@ -2,7 +2,7 @@ import React, {JSX, useMemo, useState} from "react";
 import {Control, Controller} from "react-hook-form";
 import {CaseFormValues} from "../models/Types";
 import {EmotionKey, EmotionsConst} from "../models/consts/EmotionsConst";
-import {ScrollView as DefaultScrollView, Text, View, TouchableWithoutFeedback} from "react-native";
+import {ScrollView as DefaultScrollView, Text, View} from "react-native";
 import {Emotion} from "../models/Emotion";
 import Slider from "@react-native-community/slider";
 import DropDownPicker from "react-native-dropdown-picker";
@@ -75,7 +75,7 @@ export function EmotionsSelector({ diary, control, name, isRTL }: EmotionsSelect
                         if (!isEqual(currentFieldKeys, pickerValue)) {
                             setPickerValue(currentFieldKeys);
                         }
-                    }, [JSON.stringify(currentFieldKeys)]); // Use JSON.stringify for stable comparison
+                    }, [JSON.stringify(currentFieldKeys)]);
 
                     const handleDropdownChange = (selectedValues: EmotionKey[]) => {
                         const updatedEmotions = selectedValues.map((key) => {

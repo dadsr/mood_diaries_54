@@ -1,6 +1,6 @@
 import '../src/i18n';
 
-import { LanguageProvider } from "../src/hooks/LanguageContext";
+import { LanguageProvider } from "@/src/hooks/LanguageContext";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Slot } from "expo-router";
 

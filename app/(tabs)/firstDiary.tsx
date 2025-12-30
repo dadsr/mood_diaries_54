@@ -1,9 +1,9 @@
 import { JSX } from "react";
 import { View, ImageBackground } from "react-native";
 import { backgroundImg } from "../../assets";
-import { globalStyles } from "../../src/styles/globalStyles";
-import DiaryScreen from "../../src/components/DiaryScreen";
-import { useLanguage } from "../../src/hooks/LanguageContext";
+import { globalStyles } from "@/src/styles/globalStyles";
+import DiaryScreen from "@/src/components/DiaryScreen";
+import { useLanguage } from "@/src/hooks/LanguageContext";
 
 export default function FirstDiary(): JSX.Element {
     console.log("FirstDiary");

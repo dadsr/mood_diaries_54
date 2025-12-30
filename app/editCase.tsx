@@ -11,21 +11,21 @@ import {
     View
 } from 'react-native';
 import {SafeAreaView ,useSafeAreaInsets} from 'react-native-safe-area-context';
-import {globalStyles, nbsp} from "../src/styles/globalStyles";
+import {globalStyles, nbsp} from "@/src/styles/globalStyles";
 import {router, useLocalSearchParams} from "expo-router";
-import {CaseFormValues} from "../src/models/Types";
+import {CaseFormValues} from "@/src/models/Types";
 import {Controller, useForm} from "react-hook-form";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import {backgroundImg, modelImg, settingsImg} from "../assets";
 import {useTranslation} from "react-i18next";
-import {Emotion} from "../src/models/Emotion";
-import {DistortionThought} from "../src/models/DistortionThought";
-import {Case} from "../src/models/Case";
+import {Emotion} from "@/src/models/Emotion";
+import {DistortionThought} from "@/src/models/DistortionThought";
+import {Case} from "@/src/models/Case";
 import services from "../src/services/Services";
 import MultiSelectCheckboxes from "../src/components/MultiSelectCheckboxes";
-import {DistortionsThoughtKey, distortionsThoughtsArray} from "../src/models/consts/DistortionsThoughtsConst";
-import {EmotionsSelector} from "../src/components/emotionsSelector";
-import { useLanguage } from "../src/hooks/LanguageContext";
+import {DistortionsThoughtKey, distortionsThoughtsArray} from "@/src/models/consts/DistortionsThoughtsConst";
+import {EmotionsSelector} from "@/src/components/emotionsSelector";
+import { useLanguage } from "@/src/hooks/LanguageContext";
 import {createEditCaseStyles} from "@/src/styles/editCaseStyles";
 
 export default function EditCase(): JSX.Element {

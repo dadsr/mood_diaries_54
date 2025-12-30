@@ -16,6 +16,7 @@ export const createEmotionsSelectorStyles = (isRTL:boolean) => StyleSheet.create
     heading: {
         fontSize: 18,
         fontWeight: 'bold',
+        color:'white',
         marginBottom: 10,
         textAlign: isRTL ? 'right' : 'left',
     },
@@ -31,7 +32,7 @@ export const createEmotionsSelectorStyles = (isRTL:boolean) => StyleSheet.create
         padding: 10,
         borderWidth: 2,
         borderColor: COLORS.primary,
-        backgroundColor:'rgba(222,211,196,0.28)',
+        backgroundColor: COLORS.primary,
         borderRadius: 15,
     },
     multiSelectPlaceholder: {
@@ -60,7 +61,7 @@ export const createEmotionsSelectorStyles = (isRTL:boolean) => StyleSheet.create
         borderRadius: 10,
         borderColor: '#000',
         marginVertical: 5,
-        backgroundColor: 'rgba(176,253,170,0.42)',
+        backgroundColor: COLORS.background,
     },
     emotionLabel: {
         fontSize: 16,

@@ -1,7 +1,7 @@
 import { Tabs } from 'expo-router';
 import { MaterialIcons } from "@expo/vector-icons";
 import TabLabelTranslate from "../../src/components/tabs/TabLabelTranslate";
-import { useLanguage } from "../../src/hooks/LanguageContext";
+import { useLanguage } from "@/src/hooks/LanguageContext";
 
 export default function TabLayout() {
     console.log("TabLayout");

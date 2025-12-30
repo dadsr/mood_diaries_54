@@ -1,6 +1,5 @@
 import {Emotion} from "./Emotion";
 import {DistortionThought} from "./DistortionThought";
-import {CounterConditioningThought} from "./CounterConditioningThought";
 
 export class Case {
     id:number;

@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native";
+import {COLORS} from "@/src/styles/themConstants";
 
 export const createDistortionThoughtsModelStyles = (isRTL:boolean) => StyleSheet.create({
     container:{
@@ -18,6 +19,7 @@ export const createDistortionThoughtsModelStyles = (isRTL:boolean) => StyleSheet
     headingText:{
         fontSize: 24,
         fontWeight: 'bold',
+        color: COLORS.white,
         marginBottom: 10,
         textAlign: isRTL ? 'right' : 'right',
     },

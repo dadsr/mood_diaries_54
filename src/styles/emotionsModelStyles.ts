@@ -16,6 +16,7 @@ export const createEmotionsModelStyles = (isRTL:boolean) => StyleSheet.create({
     },
     headingText:{
         fontSize: 24,
+        color: 'white',
         fontWeight: 'bold',
         marginBottom: 10,
         textAlign: isRTL ? 'right' : 'right',

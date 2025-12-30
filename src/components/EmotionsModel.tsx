@@ -1,14 +1,12 @@
 import {globalStyles} from "../styles/globalStyles";
-import {View, Text, StyleSheet, Modal, TouchableOpacity, I18nManager, ImageBackground,  ScrollView as DefaultScrollView} from "react-native";
+import {ImageBackground, Modal, ScrollView as DefaultScrollView, Text, TouchableOpacity, View} from "react-native";
 import {Emotion} from "../models/Emotion";
 import Slider from "@react-native-community/slider";
 import {COLORS} from "../styles/themConstants";
 import {useTranslation} from "react-i18next";
 import React, {JSX, useMemo, useState} from "react";
 import {backgroundImg} from "@/assets";
-import {createDiaryScreenStyles} from "@/src/styles/diaryScreenStyles";
 import {createEmotionsModelStyles} from "@/src/styles/emotionsModelStyles";
-
 
 
 interface EmotionsProps {

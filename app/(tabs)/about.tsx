@@ -3,9 +3,9 @@ import { ImageBackground, Linking, StyleSheet, TouchableOpacity, View } from "re
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Divider, Text } from 'react-native-paper';
 import { useTranslation } from "react-i18next";
-import { globalStyles, ltr, nbsp } from "../../src/styles/globalStyles";
+import { globalStyles, ltr, nbsp } from "@/src/styles/globalStyles";
 import { aboutImg } from "../../assets";
-import { useLanguage } from "../../src/hooks/LanguageContext";
+import { useLanguage } from "@/src/hooks/LanguageContext";
 
 export default function About() {
     console.log("About");

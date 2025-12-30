@@ -8,14 +8,14 @@ import {EmotionKey} from "./consts/EmotionsConst";
 export interface SerializedEmotion {
     _emotion: EmotionKey | null;
     _intensity: number;
-};
+}
 
 export interface SerializedDistortionThought {
     _distortion: DistortionsThoughtKey | null;
-};
+}
 export interface SerializedCounterConditioningThought {
     _counterThought: CounterThoughtKey | null;
-};
+}
 
 export interface SerializedCase {
     id: number;
@@ -28,7 +28,7 @@ export interface SerializedCase {
     symptoms: string | null;
     distortions: SerializedDistortionThought[];
     counterThoughts: string | null;
-};
+}
 
 export type CaseFormValues = {
     id: number;
@@ -41,13 +41,13 @@ export type CaseFormValues = {
     symptoms: string;
     distortions: DistortionThought[];
     counterThoughts: string;
-};
+}
 
 export interface EmotionOption {
     value: EmotionKey;
     label: string;
     intensity: number;
-};
+}
 
 export type ThoughtItem = {
     id: string;
